@@ -1,0 +1,80 @@
+/* .parallex{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.slogan  {
+    position: absolute;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+body{
+ min-height: 100vh;
+ overflow-x: hidden;   
+}
+
+.parallex img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    pointer-events: none;
+} */
+
+/* 
+.parallex {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    height: 100vh;
+   
+  }
+  
+  .slogan {
+    position: absolute;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: aliceblue;
+    text-align: center;
+  }
+  
+  .parallex img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+   */
+   .parallex {
+    position: relative;
+    height: 200vh; /* Allow scrolling */
+    overflow: hidden;
+  }
+  
+  .slogan {
+    position: absolute;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    color: rgb(4 120 87);
+  }
+  
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .parallex img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+  
