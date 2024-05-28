@@ -11,6 +11,7 @@ import leaf from '../assets/leaf.png';
 import plant from '../assets/plant.png';
 import { TypeAnimation } from 'react-type-animation';
 import SearchTrip from '../components/SearchTrip';
+import CustomersGallery from '../components/CustomersGallery';
 
 const LandingPage = () => {
   const sloganRef = useRef(null);
@@ -78,6 +79,7 @@ const LandingPage = () => {
       <img src={plant} id="plant" alt="plant" />
     </div>
     <SearchTrip />
+    <CustomersGallery />
     </>
   );
 };

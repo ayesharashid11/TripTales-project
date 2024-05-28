@@ -77,4 +77,6 @@ body{
     width: 100%;
     pointer-events: none;
   }
-  
+  .gray-shade{
+background-color: #F6F6F6;
+  }
