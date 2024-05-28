@@ -78,7 +78,7 @@ const LandingPage = () => {
       <img src={leaf} ref={leafRef} id="leaf" alt="leaf" />
       <img src={plant} id="plant" alt="plant" />
     </div>
-    <SearchTrip />
+    <SearchTrip /><hr/>
     <CustomersGallery />
     </>
   );

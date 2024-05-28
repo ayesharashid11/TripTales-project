@@ -4,7 +4,9 @@ const SearchTrip = () => {
     return (
         <>
             <div className='p-11'>
-                <h2 className="text-2xl text-emerald-700 font-semibold mb-4">Search your Trip</h2>
+                <div className=' flex items-center justify-center'>
+                <h2 className="text-3xl text-emerald-700 font-semibold mb-4">Search your Trip</h2>
+                </div>
                 <div className="flex items-center justify-center ">
                     <div className="bg-white p-8 rounded shadow-md w-full max-w-4xl">
                         <form className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
