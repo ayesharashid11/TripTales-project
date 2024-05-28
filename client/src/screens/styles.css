@@ -77,6 +77,10 @@ body{
     width: 100%;
     pointer-events: none;
   }
-  .gray-shade{
+  /* .gray-shade{
 background-color: #F6F6F6;
+  } */
+
+  .react-multiple-carousel__arrow{
+    display: none !important;
   }

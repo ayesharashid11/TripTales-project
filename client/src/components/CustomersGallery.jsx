@@ -8,11 +8,12 @@ import img7 from '../assets/scene7.jpg';
 import img8 from '../assets/img8.jpeg';
 import img9 from '../assets/img9.jpg';
 import img6 from '../assets/img6.jpg';
-
+import { GrGallery } from "react-icons/gr";
 const CustomersGallery = () => {
     return (
         <div className=' p-11'>
-            <h2 className="text-3xl flex items-center justify-center text-emerald-700 font-semibold mb-4">See Our Customers Galllery</h2>
+            <h2 className="text-3xl flex items-center justify-center text-emerald-700 font-semibold mb-4">
+            <GrGallery className='text-4xl mr-3  text-yellow-500' /> See Our Customers Galllery</h2>
             <div className='gap-6 columns-3 p-5' >
                 <img src={scene1} className='w-full mb-5 aspect-video rounded-lg' />
                 <img src={scene2} className='w-full mb-5 aspect-square rounded-lg' />

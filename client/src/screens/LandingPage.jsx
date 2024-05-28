@@ -12,6 +12,7 @@ import plant from '../assets/plant.png';
 import { TypeAnimation } from 'react-type-animation';
 import SearchTrip from '../components/SearchTrip';
 import CustomersGallery from '../components/CustomersGallery';
+import CustomerSayAbout from '../components/CustomerSayAbout';
 
 const LandingPage = () => {
   const sloganRef = useRef(null);
@@ -61,13 +62,12 @@ const LandingPage = () => {
       <p ref={sloganRef} className="slogan" id="slogan">
       <TypeAnimation
       sequence={[
-        'Pack', 
+        'Pack Up', 
         1000,
-        'Travel, ',
+        'Travel There, ',
         1000,
         'Then Share',
         1000,
-      
       ]}
       wrapper="span"
       cursor={true}
@@ -79,7 +79,8 @@ const LandingPage = () => {
       <img src={plant} id="plant" alt="plant" />
     </div>
     <SearchTrip /><hr/>
-    <CustomersGallery />
+    <CustomersGallery /><hr/>
+    <CustomerSayAbout />
     </>
   );
 };
