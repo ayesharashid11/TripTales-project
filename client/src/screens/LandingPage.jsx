@@ -10,6 +10,7 @@ import tree from '../assets/tree.png';
 import leaf from '../assets/leaf.png';
 import plant from '../assets/plant.png';
 import { TypeAnimation } from 'react-type-animation';
+import SearchTrip from '../components/SearchTrip';
 
 const LandingPage = () => {
   const sloganRef = useRef(null);
@@ -48,6 +49,7 @@ const LandingPage = () => {
   }, []);
 
   return (
+    <>
     <div className="parallex">
       <img src={hill1} ref={hill1Ref} id="hill1" alt="hill1" />
       <img src={hill2} id="hill2" alt="hill2" />
@@ -57,7 +59,6 @@ const LandingPage = () => {
       <img src={tree} id="tree" alt="tree" />
       <p ref={sloganRef} className="slogan" id="slogan">
       <TypeAnimation
-       className= "text-white"
       sequence={[
         'Pack', 
         1000,
@@ -73,10 +74,11 @@ const LandingPage = () => {
       style={{ fontSize: '2em', display: 'inline-block' }}
     />
       </p>
-     
       <img src={leaf} ref={leafRef} id="leaf" alt="leaf" />
       <img src={plant} id="plant" alt="plant" />
     </div>
+    <SearchTrip />
+    </>
   );
 };
 

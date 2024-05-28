@@ -4,7 +4,7 @@ const Footer = () => {
   return (
    <>
    <hr className=" border-gray-200 sm:mx-auto lg:my-8" />
-      <div className="sm:flex sm:items-center sm:justify-between p-8">
+      <div className="sm:flex sm:items-center sm:justify-between p-4">
           <span className="text-sm sm:text-center ">© 2024 TripTales™. All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">

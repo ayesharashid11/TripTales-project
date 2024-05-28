@@ -51,7 +51,7 @@ body{
    */
    .parallex {
     position: relative;
-    height: 200vh; /* Allow scrolling */
+    height: 130vh; 
     overflow: hidden;
   }
   
