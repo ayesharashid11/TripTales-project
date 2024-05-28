@@ -31,7 +31,7 @@ const BlogImgCarosl = () => {
                 responsive={responsive}
                 autoPlay={true}
                 autoPlaySpeed={1000}
-                autoPlayInterval={2000}
+                autoPlayInterval={1000}
                 infinite={true}
             >
                 <div className='ml-2 mr-2'>

@@ -13,6 +13,7 @@ import { TypeAnimation } from 'react-type-animation';
 import SearchTrip from '../components/SearchTrip';
 import CustomersGallery from '../components/CustomersGallery';
 import CustomerSayAbout from '../components/CustomerSayAbout';
+import FeaturedTours from '../components/FeaturedTours';
 
 const LandingPage = () => {
   const sloganRef = useRef(null);
@@ -79,6 +80,7 @@ const LandingPage = () => {
       <img src={plant} id="plant" alt="plant" />
     </div>
     <SearchTrip /><hr/>
+    <FeaturedTours /><hr/>
     <CustomersGallery /><hr/>
     <CustomerSayAbout />
     </>

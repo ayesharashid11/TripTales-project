@@ -33,7 +33,7 @@ const CustomerSayAbout = () => {
                 responsive={responsive}
                 autoPlay={true}
                 autoPlaySpeed={1000}
-                autoPlayInterval={2000}
+                autoPlayInterval={1000}
                 infinite={true}
             >
                 <div className='ml-6 mr-2 bg-emerald-700 text-white p-6 rounded-2xl'>
