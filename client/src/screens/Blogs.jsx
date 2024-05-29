@@ -3,6 +3,7 @@ import BlogImgCarosl from '../components/BlogImgCarosl';
 import { Button } from 'flowbite-react';
 import { IoCreateSharp } from "react-icons/io5";
 import TripActivities from '../components/TripActivities';
+import UserBlogs from '../components/UserBlogs';
 const Blogs = () => {
   return (
     <div className='mt-[8%]'>
@@ -12,7 +13,8 @@ const Blogs = () => {
         <IoCreateSharp className='mr-3 text-xl' /> Create your Blog</Button>
       </div>
       <hr/>
-      <TripActivities />
+      <TripActivities /><hr/>
+      <UserBlogs />
     </div>
   )
 }
