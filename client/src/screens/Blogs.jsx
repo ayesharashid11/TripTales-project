@@ -4,13 +4,16 @@ import { Button } from 'flowbite-react';
 import { IoCreateSharp } from "react-icons/io5";
 import TripActivities from '../components/TripActivities';
 import UserBlogs from '../components/UserBlogs';
+import { Link } from 'react-router-dom';
 const Blogs = () => {
   return (
     <div className='mt-[8%]'>
       <BlogImgCarosl />
       <div className='flex justify-center items-center p-6'>
+        <Link to="/createblogs">
         <Button className="text-white bg-emerald-700  rounded-lg text-sm px-4 py-1 text-center">
         <IoCreateSharp className='mr-3 text-xl' /> Create your Blog</Button>
+        </Link>
       </div>
       <hr/>
       <TripActivities /><hr/>

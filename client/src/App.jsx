@@ -5,16 +5,18 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Blogs from "./screens/Blogs"
 import Test from './components/Test'
+import CreateBlog from "./screens/CreateBlog"
 
 const App = () => {
   return (
    <BrowserRouter>
    <Header />
    <Routes>
-    <Route index element={<LandingPage/>}></Route>
-    <Route path="*" element={<PageNotFound />}></Route>
+    <Route index element={<LandingPage/>}/>
+    <Route path="*" element={<PageNotFound />}/>
     <Route path="/blogs" element={<Blogs />} />
     <Route path="/test" element={<Test/>}/>
+    <Route path="/createblogs" element={<CreateBlog />}/>
    </Routes>
    <Footer />
    </BrowserRouter>
