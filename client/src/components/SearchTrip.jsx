@@ -1,5 +1,8 @@
 import React from 'react'
+import { Label, TextInput } from "flowbite-react";
 import { GiMountains } from "react-icons/gi";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { FaSearchLocation } from "react-icons/fa";
 const SearchTrip = () => {
     return (
         <>
@@ -12,30 +15,32 @@ const SearchTrip = () => {
                     <div className="bg-white p-8 rounded shadow-md w-full max-w-4xl">
                         <form className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
                             <div className="flex flex-col w-full md:w-1/3">
-                                <label htmlFor="city" className="mb-2 ">City</label>
-                                <input
+                                <Label htmlFor="city" className="mb-2 ">City</Label>
+                                <TextInput
                                     type="text"
                                     id="city"
                                     placeholder="Enter your city here"
-                                    className="border border-gray-300 rounded px-4 py-2 text-lg w-full"
+                                    className="text-lg w-full"
+                                    icon={FaMapLocationDot}
                                 />
                             </div>
                             <div className="flex flex-col w-full md:w-1/3">
-                                <label htmlFor="date" className="mb-2">Date</label>
-                                <input
+                                <Label htmlFor="date" className="mb-2">Date</Label>
+                                <TextInput
                                     type="date"
                                     id="date"
-                                    className="border border-gray-300 rounded px-4 py-2 text-lg w-full"
+                                    className=" text-lg w-full"
                                 />
                             </div>
                             <div className="flex flex-col w-full md:w-1/3">
-                                <label htmlFor="range" className="mb-2">Range</label>
-                                <input
+                                <Label htmlFor="range" className="mb-2">Range</Label>
+                                <TextInput
                                     type="range"
                                     id="range"
-                                    className="border border-gray-300 rounded px-4 py-2 w-full"
+                                    className=" w-full"
                                 />
                             </div>
+                            <FaSearchLocation className='text-5xl p-2 bg-emerald-700 text-white rounded cursor-pointer'/>
                         </form>
                     </div>
                 </div>

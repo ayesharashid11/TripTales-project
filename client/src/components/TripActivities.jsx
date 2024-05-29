@@ -43,23 +43,23 @@ const TripActivities = () => {
           autoPlaySpeed={2000}
           infinite={true}
         >
-          <div className='flex flex-col items-center mx-2 p-4 w-[150px]'>
+          <div className='width-20 flex flex-col items-center mx-2 p-4 '>
             <GiHiking className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
             <p>Hiking</p>
           </div>
-          <div className='flex flex-col items-center mx-2 p-4 w-[150px]'>
+          <div className='width-20 flex flex-col items-center mx-2 p-4 '>
             <FaPersonSwimming className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
             <p>Swimming</p>
           </div>
-          <div className='flex flex-col items-center mx-2 p-4 w-[150px]'>
+          <div className='width-20 flex flex-col items-center mx-2 p-4 w-[20%]'>
             <GiCycling className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
             <p>Cycling</p>
           </div>
-          <div className='flex flex-col items-center mx-2 p-4 w-[150px]'>
+          <div className='width-20 flex flex-col items-center mx-2 p-4 w-[20%]'>
             <GiBoatFishing className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
             <p>Fishing</p>
           </div>
-          <div className='flex flex-col items-center mx-2 p-4 w-[150px]'>
+          <div className='width-20 flex flex-col items-center mx-2 p-4 w-[20%]'>
             <SiJusteat className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
             <p>Eat</p>
           </div>

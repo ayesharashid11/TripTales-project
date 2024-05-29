@@ -30,7 +30,7 @@ const FeaturedTours = () => {
           href="#"
           className="rounded-lg bg-emerald-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800  "
         >
-          Add to cart
+       Book Now
         </a>
       </div>
     </Card>

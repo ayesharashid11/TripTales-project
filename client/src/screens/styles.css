@@ -14,12 +14,12 @@
     transform: translate(-50%, -50%);
     color: rgb(4 120 87);
   }
-/*   
+  
   body {
     min-height: 100vh;
     overflow-x: hidden;
   }
-   */
+  
   .parallex img {
     position: absolute;
     top: 0;
@@ -31,6 +31,6 @@
   .react-multiple-carousel__arrow{
     display: none !important;
   }
-  .react-multi-carousel-item li{
-    width: 200px;
+  .width-20{
+    width: 20%;
   }
