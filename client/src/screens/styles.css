@@ -1,54 +1,4 @@
-/* .parallex{
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    height: 100vh;
-}
 
-.slogan  {
-    position: absolute;
-    font-size: 3em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-}
-
-body{
- min-height: 100vh;
- overflow-x: hidden;   
-}
-
-.parallex img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width:100%;
-    pointer-events: none;
-} */
-
-/* 
-.parallex {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    height: 100vh;
-   
-  }
-  
-  .slogan {
-    position: absolute;
-    font-size: 2em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    color: aliceblue;
-    text-align: center;
-  }
-  
-  .parallex img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    pointer-events: none;
-  }
-   */
    .parallex {
     position: relative;
     height: 130vh; 
@@ -64,12 +14,12 @@ body{
     transform: translate(-50%, -50%);
     color: rgb(4 120 87);
   }
-  
+/*   
   body {
     min-height: 100vh;
     overflow-x: hidden;
   }
-  
+   */
   .parallex img {
     position: absolute;
     top: 0;
@@ -77,10 +27,10 @@ body{
     width: 100%;
     pointer-events: none;
   }
-  /* .gray-shade{
-background-color: #F6F6F6;
-  } */
 
   .react-multiple-carousel__arrow{
     display: none !important;
+  }
+  .react-multi-carousel-item li{
+    width: 200px;
   }
