@@ -43,23 +43,23 @@ const TripActivities = () => {
           autoPlaySpeed={2000}
           infinite={true}
         >
-          <div className='width-20 flex flex-col items-center mx-2 p-4 '>
+          <div className='width-20 flex flex-col items-center mx-2 p-4 w-[15%]'>
             <GiHiking className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
-            <p>Hiking</p>
+            <h1 className=''>Hiking</h1>
           </div>
-          <div className='width-20 flex flex-col items-center mx-2 p-4 '>
+          <div className=' flex flex-col items-center mx-2 p-4 w-[20%]'>
             <FaPersonSwimming className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
-            <p>Swimming</p>
+            <h1>Swimming</h1>
           </div>
-          <div className='width-20 flex flex-col items-center mx-2 p-4 w-[20%]'>
+          <div className=' flex flex-col items-center mx-2 p-4 w-[20%]'>
             <GiCycling className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
-            <p>Cycling</p>
+            <h1>Cycling</h1>
           </div>
-          <div className='width-20 flex flex-col items-center mx-2 p-4 w-[20%]'>
+          <div className='flex flex-col items-center mx-2 p-4 w-[20%]'>
             <GiBoatFishing className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
-            <p>Fishing</p>
+            <h1>Fishing</h1>
           </div>
-          <div className='width-20 flex flex-col items-center mx-2 p-4 w-[20%]'>
+          <div className=' flex flex-col items-center mx-2 p-4 w-[20%]'>
             <SiJusteat className='text-6xl text-white rounded-full bg-emerald-700 p-3 mb-2' />
             <p>Eat</p>
           </div>

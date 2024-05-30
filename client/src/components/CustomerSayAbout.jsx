@@ -1,13 +1,44 @@
-import React from 'react'
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import '../screens/styles.css';
+
+import React, { useState } from 'react';
 import { FaRegGrinStars } from "react-icons/fa";
 import { IoStarSharp } from "react-icons/io5";
+import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-multi-carousel";
+
+const reviews = [
+    {
+        id: 1,
+        review: "I recently purchased a product from this company and couldn't be happier with my experience. The customer service team was incredibly responsive and helpful, addressing all my questions promptly.",
+        name: "Joe Samp",
+        role: "Customer",
+        rating: 5
+    },
+    {
+        id: 2,
+        review: "I recently purchased a product from this company and couldn't be happier with my experience. The product itself exceeded my expectations in terms of quality and performance. Shipping was fast and the item arrived well-packaged.",
+        name: "Ann Joes",
+        role: "Customer",
+        rating: 5
+    },
+    {
+        id: 3,
+        review: "The customer service team was incredibly responsive and helpful, addressing all my questions promptly.",
+        name: "Joe Samp",
+        role: "Customer",
+        rating: 5
+    },
+    {
+        id: 4,
+        review: "I recently purchased a product from this company and couldn't be happier with my experience. The customer service team was incredibly responsive and helpful, addressing all my questions promptly. The product itself exceeded my expectations in terms of quality and performance. Shipping was fast and the item arrived well-packaged.",
+        name: "Joe Samp",
+        role: "Customer",
+        rating: 5
+    }
+];
+
 const CustomerSayAbout = () => {
     const responsive = {
         superLargeDesktop: {
-            // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
             items: 5
         },
@@ -24,10 +55,17 @@ const CustomerSayAbout = () => {
             items: 1
         }
     };
+
+    const [expandedReviewId, setExpandedReviewId] = useState(null);
+
+    const toggleReadMore = (id) => {
+        setExpandedReviewId(expandedReviewId === id ? null : id);
+    };
+
     return (
         <div className='p-7'>
             <h2 className="text-3xl flex items-center justify-center text-emerald-700 font-semibold mb-4">
-            <FaRegGrinStars className='text-4xl mr-3 text-yellow-500'/> Our Customers Reviews 
+                <FaRegGrinStars className='text-4xl mr-3 text-yellow-500' /> Our Customers Reviews
             </h2>
             <Carousel
                 responsive={responsive}
@@ -36,58 +74,29 @@ const CustomerSayAbout = () => {
                 autoPlayInterval={1000}
                 infinite={true}
             >
-                <div className='ml-6 mr-2 bg-emerald-700 text-white p-6 rounded-2xl'>
-                    <p>I recently purchased a product from this company and couldn't be happier with my experience. The customer service team was incredibly responsive and helpful, addressing all my questions promptly. </p>
-                    <p className='font-semibold'>Joe Samp</p>
-                    <p>Cutomer</p>
-                    <div className='flex'>
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
+                {reviews.map(review => (
+                    <div key={review.id} className='ml-6 mr-2 bg-emerald-700 text-white p-6 rounded-2xl'>
+                        <p>
+                            {expandedReviewId === review.id ? review.review : `${review.review.substring(0, 100)}...`}
+                            <button 
+                                className='text-yellow-300 ml-2'
+                                onClick={() => toggleReadMore(review.id)}
+                            >
+                                {expandedReviewId === review.id ? 'Read Less' : 'Read More'}
+                            </button>
+                        </p>
+                        <p className='font-semibold'>{review.name}</p>
+                        <p>{review.role}</p>
+                        <div className='flex'>
+                            {Array(review.rating).fill().map((_, i) => (
+                                <IoStarSharp key={i} className='text-yellow-300' />
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className='ml-6 mr-2  bg-emerald-700 text-white p-6 rounded-2xl' >
-                    <p>I recently purchased a product from this company and couldn't be happier with my experience. The product itself exceeded my expectations in terms of quality and performance. Shipping was fast and the item arrived well-packaged. </p>
-                    <p className='font-semibold'>Ann Joes</p>
-                    <p>Cutomer</p>
-                    <div className='flex'>
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    </div>
-                </div>
-                <div className='ml-6 mr-2  bg-emerald-700 text-white p-6 rounded-2xl'>
-                    <p>The customer service team was incredibly responsive and helpful, addressing all my questions promptly. </p>
-                    <p className='font-semibold'>Joe Samp</p>
-                    <p>Cutomer</p>
-                    <div className='flex'>
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    </div>
-                </div>
-                <div className='ml-6 mr-2  bg-emerald-700 text-white p-6 rounded-2xl'>
-                    <p>I recently purchased a product from this company and couldn't be happier with my experience. The customer service team was incredibly responsive and helpful, addressing all my questions promptly. The product itself exceeded my expectations in terms of quality and performance. Shipping was fast and the item arrived well-packaged.</p>
-                    <p className='font-semibold'>Joe Samp</p>
-                    <p>Cutomer</p>
-                    <div className='flex'>
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    <IoStarSharp className='text-yellow-300' />
-                    </div>
-                </div>
+                ))}
             </Carousel>
-
         </div>
-    )
-}
+    );
+};
 
-export default CustomerSayAbout
+export default CustomerSayAbout;
