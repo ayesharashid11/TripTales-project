@@ -5,7 +5,6 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Blogs from "./screens/Blogs"
 import CreateBlog from "./screens/CreateBlog"
-
 const App = () => {
   return (
    <BrowserRouter>
