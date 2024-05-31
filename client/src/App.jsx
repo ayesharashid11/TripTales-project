@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Blogs from "./screens/Blogs"
 import CreateBlog from "./screens/CreateBlog"
+import Tours from "./screens/Tours"
 const App = () => {
   return (
    <BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => {
     <Route path="*" element={<PageNotFound />}/>
     <Route path="/blogs" element={<Blogs />} />
     <Route path="/createblogs" element={<CreateBlog />}/>
+    <Route path="/tours" element={<Tours/>} />
    </Routes>
    <Footer />
    </BrowserRouter>

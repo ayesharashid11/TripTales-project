@@ -38,8 +38,8 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="" className=" block py-2 px-3 hover:underline-offset-1 text-emerald-700 rounded md:hover:bg-transparent md:hover:text-emerald-300 md:p-0">
-                  Services
+                <Link to="/tours" className=" block py-2 px-3 hover:underline-offset-1 text-emerald-700 rounded md:hover:bg-transparent md:hover:text-emerald-300 md:p-0">
+                Tours
                 </Link>
               </li>
               <li>
