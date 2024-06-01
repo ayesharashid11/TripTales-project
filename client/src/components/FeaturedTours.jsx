@@ -80,7 +80,7 @@ const FeaturedTours = () => {
         {featuredTours.map(tour => (
           <Card
             key={tour.id}
-            className="w-[17rem] mx-2"
+            className="w-[15rem] mx-2"
             imgAlt={tour.title}
             imgSrc={tour.image}
           >
