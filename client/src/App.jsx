@@ -8,6 +8,7 @@ import CreateBlog from "./screens/CreateBlog"
 import Tours from "./screens/Tours"
 import Weather from "./screens/Weather"
 import Signup from "./screens/Signup"
+import TourDetail from "./screens/TourDetail"
 const App = () => {
   return (
    <BrowserRouter>
@@ -18,6 +19,7 @@ const App = () => {
     <Route path="/blogs" element={<Blogs />} />
     <Route path="/createblogs" element={<CreateBlog />}/>
     <Route path="/tours" element={<Tours/>} />
+    <Route path="/tours/:tourName" element={<TourDetail/>} />
     <Route path="/weather" element={<Weather/>}/>
     <Route path="/signup" element={<Signup/>} />
    </Routes>

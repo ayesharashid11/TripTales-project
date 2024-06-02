@@ -10,10 +10,10 @@ import '../screens/styles.css';
 const TripActivities = () => {
   return (
     <>
-      <h2 className="text-xl md:text-3xl flex items-center justify-center text-emerald-700 font-semibold m-4">
+      <h2 className="text-xl md:text-3xl flex items-center justify-center text-emerald-700 font-semibold m-6">
         <FiActivity className='text-4xl mr-3 text-yellow-500' /> Trip Activities
       </h2>
-      <div className=" flex flex-col md:flex-row m-6">
+      <div className=" flex flex-col md:flex-row m-6 mb-7">
         <div className='items-center m-2 p-4 border-r-2 border-b-2 border-gray-300 shadow-lg rounded-lg w-56'>
           <GiHiking className='text-6xl text-white flex items-center justify-center rounded-full bg-emerald-700 p-3 mb-2 hover:text-yellow-400' />
           <h1 className='font-medium m-1'>Hiking</h1 >

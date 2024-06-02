@@ -3,7 +3,6 @@ import { Label, TextInput } from "flowbite-react";
 import { GiMountains } from "react-icons/gi";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaSearchLocation } from "react-icons/fa";
-import Map from './Map';
 const SearchTrip = () => {
     return (
         <>
@@ -41,7 +40,6 @@ const SearchTrip = () => {
                             </div>
                             <FaSearchLocation className='text-5xl p-2 bg-emerald-700 text-white rounded cursor-pointer' />
                         </form>
-                        {/* <Map />  */}
                     </div>
                 </div>
             </div>
