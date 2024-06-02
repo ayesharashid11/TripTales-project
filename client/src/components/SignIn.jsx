@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -41,9 +42,10 @@ const Signin = () => {
             </div>
             <div className="flex justify-between text-sm font-medium text-gray-500">
               Not registered?&nbsp;
-              <a href="#" className="text-cyan-700 hover:underline">
+             <Link to="/signup"className="text-cyan-700 hover:underline"
+             onClick={() => setOpenModal(false)}>
                 Create account
-              </a>
+                </Link>
             </div>
           </div>
         </Modal.Body>

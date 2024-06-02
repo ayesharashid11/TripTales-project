@@ -7,6 +7,7 @@ import Blogs from "./screens/Blogs"
 import CreateBlog from "./screens/CreateBlog"
 import Tours from "./screens/Tours"
 import Weather from "./screens/Weather"
+import Signup from "./screens/Signup"
 const App = () => {
   return (
    <BrowserRouter>
@@ -18,6 +19,7 @@ const App = () => {
     <Route path="/createblogs" element={<CreateBlog />}/>
     <Route path="/tours" element={<Tours/>} />
     <Route path="/weather" element={<Weather/>}/>
+    <Route path="/signup" element={<Signup/>} />
    </Routes>
    <Footer />
    </BrowserRouter>

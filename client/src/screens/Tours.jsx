@@ -122,7 +122,7 @@ const Tours = () => {
       <div
         className="relative flex items-center justify-center h-[40vh] w-full bg-cover bg-center"
         style={{
-          backgroundImage:  `url('../assests/seaview.jpg')`,
+          backgroundImage:  "url('../assests/seaview.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black opacity-30"></div>
