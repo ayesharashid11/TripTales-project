@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FaRegGrinStars } from "react-icons/fa";
 import { IoStarSharp } from "react-icons/io5";
@@ -11,30 +10,35 @@ const reviews = [
         review: "I recently purchased a product from this company and couldn't be happier with my experience. The customer service team was incredibly responsive and helpful, addressing all my questions promptly.",
         name: "Joe Samp",
         role: "Customer",
-        rating: 5
+        rating: 5,
+        avatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fsearch%3Fq%3Davatar&psig=AOvVaw1IiOrRdfqSwtbS-FH0DaBe&ust=1717532350563000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJjYx-GgwIYDFQAAAAAdAAAAABAE"
     },
     {
         id: 2,
         review: "I recently purchased a product from this company and couldn't be happier with my experience. The product itself exceeded my expectations in terms of quality and performance. Shipping was fast and the item arrived well-packaged.",
         name: "Ann Joes",
         role: "Customer",
-        rating: 5
+        rating: 5,
+        avatar: "https://via.placeholder.com/150"  // Placeholder image for avatar
     },
     {
         id: 3,
         review: "The customer service team was incredibly responsive and helpful, addressing all my questions promptly.",
         name: "Joe Samp",
         role: "Customer",
-        rating: 5
+        rating: 5,
+        avatar: "https://via.placeholder.com/150"  // Placeholder image for avatar
     },
     {
         id: 4,
         review: "I recently purchased a product from this company and couldn't be happier with my experience. The customer service team was incredibly responsive and helpful, addressing all my questions promptly. The product itself exceeded my expectations in terms of quality and performance. Shipping was fast and the item arrived well-packaged.",
         name: "Joe Samp",
         role: "Customer",
-        rating: 5
+        rating: 5,
+        avatar: "https://via.placeholder.com/150"  // Placeholder image for avatar
     }
 ];
+
 const CustomerSayAbout = () => {
     const responsive = {
         superLargeDesktop: {
@@ -72,23 +76,27 @@ const CustomerSayAbout = () => {
                 infinite={true}
             >
                 {reviews.map(review => (
-                    <div key={review.id} className='ml-6 mr-2 bg-emerald-700 text-white p-6 rounded-2xl'>
+                    <div key={review.id} className='bg-emerald-700 text-white p-6 rounded-2xl mx-2'>
+                        <div className='flex items-center mb-4'>
+                            <img src={review.avatar} alt={review.name} className='w-12 h-12 rounded-full mr-4' />
+                            <div>
+                                <p className='font-semibold'>{review.name}</p>
+                                <div className='flex'>
+                                    {Array(review.rating).fill().map((_, i) => (
+                                        <IoStarSharp key={i} className='text-yellow-300' />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                         <p>
                             {expandedReviewId === review.id ? review.review : `${review.review.substring(0, 100)}...`}
-                            <button 
+                            <button
                                 className='text-yellow-300 ml-2'
                                 onClick={() => toggleReadMore(review.id)}
                             >
                                 {expandedReviewId === review.id ? 'Read Less' : 'Read More'}
                             </button>
                         </p>
-                        <p className='font-semibold'>{review.name}</p>
-                        <p>{review.role}</p>
-                        <div className='flex'>
-                            {Array(review.rating).fill().map((_, i) => (
-                                <IoStarSharp key={i} className='text-yellow-300' />
-                            ))}
-                        </div>
                     </div>
                 ))}
             </Carousel>

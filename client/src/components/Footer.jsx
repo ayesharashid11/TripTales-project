@@ -3,7 +3,7 @@ import '../screens/styles.css';
 const Footer = () => {
   return (
    <>
-   <hr className=" footer-hr border-gray-200 sm:mx-auto lg:my-8" />
+   <hr className=" footer-hr border-gray-200 sm:mx-auto " />
       <div className="sm:flex sm:items-center sm:justify-between p-4">
           <span className="text-sm sm:text-center ">© 2024 TripTales™. All Rights Reserved.
           </span>
