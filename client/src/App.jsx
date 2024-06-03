@@ -1,33 +1,61 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import LandingPage from "./screens/LandingPage"
-import PageNotFound from "./screens/PageNotFound"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import Blogs from "./screens/Blogs"
-import CreateBlog from "./screens/CreateBlog"
-import Tours from "./screens/Tours"
-import Weather from "./screens/Weather"
-import Signup from "./screens/Signup"
-import TourDetail from "./screens/TourDetail"
-import BlogDetail from "./screens/BlogDetail"
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './screens/LandingPage';
+import PageNotFound from './screens/PageNotFound';
+import Blogs from './screens/Blogs';
+import CreateBlog from './screens/CreateBlog';
+import Tours from './screens/Tours';
+import Weather from './screens/Weather';
+import Signup from './screens/Signup';
+import TourDetail from './screens/TourDetail';
+import BlogDetail from './screens/BlogDetail';
+import CreateTour from './screens/CreateTour';
+import Layout from './components/layout';
+
 const App = () => {
   return (
-   <BrowserRouter>
-   <Header />
-   <Routes>
-    <Route index element={<LandingPage/>}/>
-    <Route path="*" element={<PageNotFound />}/>
-    <Route path="/blogs" element={<Blogs />} />
-    <Route path="/blogs/:blogSlug" element={<BlogDetail/>}/>
-    <Route path="/createblogs" element={<CreateBlog />}/>
-    <Route path="/tours" element={<Tours/>} />
-    <Route path="/tours/:tourName" element={<TourDetail/>} />
-    <Route path="/weather" element={<Weather/>}/>
-    <Route path="/signup" element={<Signup/>} />
-   </Routes>
-   <Footer />
-   </BrowserRouter>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <Layout>
+            <LandingPage />
+          </Layout>} />
+        <Route path="*" element={
+          <Layout>
+            <PageNotFound />
+          </Layout>} />
+        <Route path="/blogs" element={
+          <Layout>
+            <Blogs />
+          </Layout>} />
+        <Route path="/blogs/:blogSlug" element={
+          <Layout>
+            <BlogDetail />
+          </Layout>} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/createblogs" element={
+          <Layout>
+            <CreateBlog />
+          </Layout>} />
+        <Route path="/tours" element={
+          <Layout>
+            <Tours />
+          </Layout>} />
+        <Route path="/tours/:tourName" element={
+          <Layout>
+            <TourDetail />
+          </Layout>} />
+        <Route path="/weather" element={
+          <Layout>
+            <Weather />
+          </Layout>} />
+        <Route path="/create-tour" element={
+          <Layout>
+            <CreateTour />
+          </Layout>} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

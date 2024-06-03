@@ -9,7 +9,6 @@ const Header = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <span className="self-center md:text-2xl font-semibold whitespace-nowrap text-emerald-700">TripTales</span>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          
               <Signin />
           </div>
           <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
@@ -34,11 +33,15 @@ const Header = () => {
                  Weather
                 </Link>
               </li>
+              <li>
+                <Link to="/create-tour" className=" block py-2 px-3 hover:underline-offset-1 text-emerald-700 rounded md:hover:bg-transparent md:hover:text-emerald-300 md:p-0">
+                Create Tour
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-
     </>
   )
 }
