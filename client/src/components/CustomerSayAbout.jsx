@@ -35,7 +35,6 @@ const reviews = [
         rating: 5
     }
 ];
-
 const CustomerSayAbout = () => {
     const responsive = {
         superLargeDesktop: {
@@ -55,9 +54,7 @@ const CustomerSayAbout = () => {
             items: 1
         }
     };
-
     const [expandedReviewId, setExpandedReviewId] = useState(null);
-
     const toggleReadMore = (id) => {
         setExpandedReviewId(expandedReviewId === id ? null : id);
     };

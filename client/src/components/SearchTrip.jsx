@@ -3,7 +3,9 @@ import { Label, TextInput } from "flowbite-react";
 import { GiMountains } from "react-icons/gi";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaSearchLocation } from "react-icons/fa";
+
 const SearchTrip = () => {
+  
     return (
         <>
             <div className='p-11'>
@@ -46,5 +48,4 @@ const SearchTrip = () => {
         </>
     );
 }
-
 export default SearchTrip

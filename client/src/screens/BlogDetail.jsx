@@ -26,13 +26,10 @@ const blogPosts = [
 const BlogDetail = () => {
     const { blogSlug } = useParams();
     const [readMore, setReadMore] = useState(false);
-
     const blog = blogPosts.find(b => b.title.toLowerCase().replace(/\s+/g, '-') === blogSlug);
-
     if (!blog) {
         return <div>Blog not found</div>;
     }
-
     const toggleReadMore = () => {
         setReadMore(!readMore);
     };

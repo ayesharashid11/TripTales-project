@@ -27,7 +27,5 @@ const CustomersGallery = () => {
             </div>
         </div>
     )
-
 }
-
 export default CustomersGallery
