@@ -95,7 +95,7 @@ const Tours = () => {
               <Button
                 className="rounded-lg bg-emerald-700 text-center text-sm font-medium text-white hover:bg-cyan-800"
               >
-                Book Now
+                View
               </Button>
             </div>
           </Card>
