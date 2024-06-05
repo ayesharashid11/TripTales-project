@@ -12,7 +12,6 @@ const initialValues = {
   company: "",
 };
 
-
 const Signup = () => {
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({

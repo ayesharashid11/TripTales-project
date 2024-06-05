@@ -36,7 +36,7 @@ const BlogDetail = () => {
     return (
         <div className="relative min-h-screen m-[7%]">
             <div className="relative h-[50vh] w-full">
-                <img src={scene1} className="h-full w-full object-cover" alt="Background" />
+                <img src={scene3} className="h-full w-full object-cover" alt="Background" />
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-black bg-opacity-30">
                     <h1 className="text-3xl md:text-5xl font-bold mb-2 text-white">{blog.title}</h1>
                     <p className="text-md md:text-xl text-white">{blog.user}</p>
