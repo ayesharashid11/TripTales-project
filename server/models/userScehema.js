@@ -45,6 +45,7 @@ userSchema.pre('save', function(next) {
     if (this.password !== this.confirmPassword) {
         return next(new Error('Passwords do not match'));
     }
+    this.confirmPassword = undefined;
     next();
 });
 userSchema.pre('save', async function(next) {
@@ -53,6 +54,13 @@ userSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password, 12);
     next();
   });
+// comparing if passwords are correct to login
+userSchema.methods.correctPassword = async function(
+    candidatePassword,
+    userPassword
+  ) {
+    return await bcrypt.compare(candidatePassword, userPassword);
+  };
   
 
 const User = mongoose.model('User', userSchema);
