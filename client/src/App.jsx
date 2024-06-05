@@ -49,10 +49,7 @@ const App = () => {
           <Layout>
             <Weather />
           </Layout>} />
-        <Route path="/create-tour" element={
-          <Layout>
-            <CreateTour />
-          </Layout>} />
+        <Route path="/create-tour" element={<CreateTour />} />
       </Routes>
     </BrowserRouter>
   );
