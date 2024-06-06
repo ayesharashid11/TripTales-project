@@ -11,6 +11,7 @@ import TourBlogs from '../components/tour-datail/TourBlogs';
 const tours = {
   'starlight-sport': {
     title: "Starlight Sport",
+    seats: 6,
     image: scene3,
     rating: 5,
     price: 599,
@@ -23,6 +24,7 @@ const tours = {
   'mountain-adventure': {
     title: "Mountain Adventure",
     image: scene3,
+    seats: 3,
     rating: 4,
     price: 799,
     days: 5,
@@ -35,6 +37,7 @@ const tours = {
     title: "Beach Paradise",
     image: scene3,
     rating: 4,
+    seats: 7,
     price: 699,
     days: 5,
     company: "Trello",
@@ -70,7 +73,10 @@ const TourDetail = () => {
             </span>
           </div>
           <div className="text-xl font-bold text-gray-900 mt-2">${tour.price}</div>
-          <p><span className='text-lg text-emerald-700 font-medium'>Total Tour Days: </span>{tour.days}</p>
+          <div className='flex'>
+          <p><span className='text-lg m-2 text-emerald-700 font-medium'>Days: </span>{tour.days}</p>
+          <p><span className='text-lg m-2 text-emerald-700 font-medium'>  Seats: </span>{tour.seats}</p>
+          </div>
           <p className="mt-2 text-gray-600 text-center md:text-left">{tour.description}</p>
           <div className="flex flex-col md:items-start mt-2 max-w-md md:max-w-xl w-full ">
             <h1 className="text-xl md:text-xl text-emerald-700 font-semibold mt-2">Contact Info</h1>

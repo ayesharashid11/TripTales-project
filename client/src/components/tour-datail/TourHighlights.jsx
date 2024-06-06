@@ -47,7 +47,7 @@ const TourHighlights = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
                 {highlights.map((highlight, index) => (
-                    <div key={index} className="flex flex-col items-center justify-center m-2 p-4 hover:border-emerald-700 shadow-lg rounded-lg border border-gray-400">
+                    <div key={index} className="flex flex-col items-center justify-center m-2 p-3 hover:border-emerald-700 shadow-lg rounded-lg border border-gray-400">
                         <img src={highlight.img} alt={highlight.title} className="rounded-lg w-full" />
                         <h1 className="font-medium m-1 text-center text-emerald-700">{highlight.title}</h1>
                         <p className="text-center">{highlight.description}</p>
