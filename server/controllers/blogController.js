@@ -28,11 +28,23 @@ exports.createBlog = catchAsync(async (req, res, next) => {
 exports.getBlog = catchAsync(async (req, res, next) => {
   const blog = await Blog.findById(req.params.id);
   if (!blog) {
-    return next(new AppError('No blogs found with that ID', 404));
+    return next(new AppError('No blog found with that ID', 404));
   }
-  res.json({
+  res.status(200).json({
+    status: 'success',
     data: {
       blog
     }
-  })
+  });
+});
+
+exports.getAllBlogs = catchAsync(async (req, res, next) => {
+  const blogs = await Blog.find();
+  res.status(200).json({
+    status: 'success',
+    results: blogs.length,
+    data: {
+      blogs
+    }
+  });
 });

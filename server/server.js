@@ -17,20 +17,20 @@ app.use('/api/blogs' , blogRouter);
 
 
 
-const createDirectories = () => {
-  const imageUploadDir = path.join(__dirname, '..', 'uploads', 'images');
-  const videoUploadDir = path.join(__dirname, '..', 'uploads', 'videos');
+// const createDirectories = () => {
+//   const imageUploadDir = path.join(__dirname, '..', 'uploads', 'images');
+//   const videoUploadDir = path.join(__dirname, '..', 'uploads', 'videos');
 
-  if (!fs.existsSync(imageUploadDir)) {
-    fs.mkdirSync(imageUploadDir, { recursive: true });
-  }
+//   if (!fs.existsSync(imageUploadDir)) {
+//     fs.mkdirSync(imageUploadDir, { recursive: true });
+//   }
 
-  if (!fs.existsSync(videoUploadDir)) {
-    fs.mkdirSync(videoUploadDir, { recursive: true });
-  }
-};
+//   if (!fs.existsSync(videoUploadDir)) {
+//     fs.mkdirSync(videoUploadDir, { recursive: true });
+//   }
+// };
 
-createDirectories();
+// createDirectories();
 
 
 const connectDb = async () => {
