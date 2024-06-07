@@ -4,8 +4,9 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRouter = require('./routes/authRoutes');
 const blogRouter = require('./routes/blogRoutes');
-const fs = require('fs');
-const path = require('path');
+const tourRouter = require('./routes/tourRoutes');
+// const fs = require('fs');
+// const path = require('path');
 
 dotenv.config();
 const app= express();
@@ -14,7 +15,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRouter);
 app.use('/api/blogs' , blogRouter);
-
+app.use('/api/tours', tourRouter);
 
 
 // const createDirectories = () => {

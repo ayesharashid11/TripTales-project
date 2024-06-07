@@ -29,39 +29,39 @@ const userSchema = new mongoose.Schema({
     },
     companyName: {
         type: String,
-        required: function() {
+        required: function () {
             return this.role === 'company';
         }
     },
     country: {
         type: String,
-        required: function() {
+        required: function () {
             return this.role === 'company';
         }
     }
 });
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
     if (this.password !== this.confirmPassword) {
         return next(new Error('Passwords do not match'));
     }
     this.confirmPassword = undefined;
     next();
 });
-userSchema.pre('save', async function(next) {
-    if (!this.isModified('password')) 
-      return next();
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password'))
+        return next();
     this.password = await bcrypt.hash(this.password, 12);
     next();
-  });
+});
 // comparing if passwords are correct to login
-userSchema.methods.correctPassword = async function(
+userSchema.methods.correctPassword = async function (
     candidatePassword,
     userPassword
-  ) {
+) {
     return await bcrypt.compare(candidatePassword, userPassword);
-  };
-  
+};
+
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;
