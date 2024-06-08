@@ -9,8 +9,8 @@ const Signin = () => {
 
   return (
     <>
-      <Button className="text-white bg-emerald-700  rounded-lg text-sm px-1 py-1 text-center"
-      onClick={() => setOpenModal(true)}>Sign In</Button>
+      <p className="text-emerald-700  rounded-lg text-md font-medium cursor-pointer hover:text-emerald-300  text-center"
+      onClick={() => setOpenModal(true)}>Sign In</p>
       <Modal show={openModal} size="md" popup onClose={() => setOpenModal(false)} >
         <Modal.Header />
         <Modal.Body>
