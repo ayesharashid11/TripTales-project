@@ -36,23 +36,23 @@ exports.getAllReviews = catchAsync(async (req, res, next) => {
   });
 });
 
-// exports.getReview = catchAsync(async (req, res, next) => {
-//   const review = await Review.findById(req.params.id)
-//     .populate({
-//       path: 'tour',
-//       select: 'tourName'
-//     })
-//     .populate({
-//       path: 'user',
-//       select: 'name companyName'
-//     });
-//   if (!review) {
-//     return next(new AppError('No review found with that ID', 404));
-//   }
-//   res.json({
-//     status: 'success',
-//     data: {
-//       review
-//     }
-//   });
-// });
+exports.getTourReviews = catchAsync(async (req, res, next) => {
+    const tourId = req.params.id;
+    const reviews = await Review.find({ tour: tourId })
+      .populate({
+        path: 'tour',
+        select: 'tourName -_id'
+      })
+      .populate({
+        path: 'user',
+        select: 'name companyName -_id'
+      });
+    
+    res.json({
+      results: reviews.length,
+      data: {
+        reviews
+      }
+    });
+  });
+  
