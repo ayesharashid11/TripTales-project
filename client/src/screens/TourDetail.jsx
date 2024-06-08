@@ -63,7 +63,7 @@ const TourDetail = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center mb-[2%] px-4">
         <div className="w-full md:w-1/2 max-w-lg mb-3">
           {/* <img src={tour.image} alt={tour.title} className="w-full rounded-lg shadow-lg" /> */}
-        <RelatedTourGallery/>
+          <RelatedTourGallery />
         </div>
         <div className="flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-8 max-w-md  w-full px-4">
           <h1 className="text-2xl font-bold text-center md:text-left">{tour.title}</h1>
@@ -89,9 +89,8 @@ const TourDetail = () => {
             <hr />
           </div>
         </div>
-        <Button className="mt-2 bg-emerald-700 text-white hover:bg-emerald-800 rounded-lg py-1 px-3">
-          Book Now
-        </Button>
+        <div><p className="text-emerald-700   text-md font-medium cursor-pointer hover:text-emerald-300  ">Book Now</p></div>
+        <p className="text-emerald-700  text-md font-medium cursor-pointer hover:text-emerald-300 ">Add Review</p>
       </div>
       {/* Highlights */}
       <TourHighlights />

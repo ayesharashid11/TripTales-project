@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const authRouter = require('./routes/authRoutes');
 const blogRouter = require('./routes/blogRoutes');
 const tourRouter = require('./routes/tourRoutes');
+const reviewrouter = require('./routes/reviewRoutes');
 // const fs = require('fs');
 // const path = require('path');
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/blogs' , blogRouter);
 app.use('/api/tours', tourRouter);
+app.use('/api/review', reviewrouter);
 
 
 // const createDirectories = () => {

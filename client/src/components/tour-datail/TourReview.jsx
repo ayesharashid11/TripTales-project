@@ -52,7 +52,7 @@ const TourReview = () => {
                 {reviews.map(review => (
                     <div key={review.id} className='bg-white text-black border-2 border-emerald-700 p-4 rounded-2xl shadow-lg'>
                         <div className='flex items-center mb-3'>
-                            <img src={review.avatar} alt={review.name} className='w-8 h-8 rounded-full mr-4' />
+                            <img src={review.avatar} alt={review.name} className='w-8 h-8 rounded-full mr-3' />
                             <div>
                                 <p className='font-semibold'>{review.name}</p>
                                 <div className='flex'>
