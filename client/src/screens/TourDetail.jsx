@@ -7,6 +7,7 @@ import scene3 from '../assets/scene3.jpg';
 import TourHighlights from '../components/tour-datail/TourHighlights';
 import TourGallery from '../components/tour-datail/TourGallery';
 import TourBlogs from '../components/tour-datail/TourBlogs';
+import RelatedTourGallery from '../components/tour-datail/RelatedTourGallery';
 
 const tours = {
   'starlight-sport': {
@@ -59,10 +60,11 @@ const TourDetail = () => {
         <FaPersonWalkingLuggage className='text-4xl mr-3 text-yellow-500' /> Tour Details
       </h2>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center mb-[2%] px-4">
-        <div className="w-full md:w-1/2 max-w-md mb-3">
-          <img src={tour.image} alt={tour.title} className="w-full rounded-lg shadow-lg" />
+        <div className="w-full md:w-1/2 max-w-lg mb-3">
+          {/* <img src={tour.image} alt={tour.title} className="w-full rounded-lg shadow-lg" /> */}
+        <RelatedTourGallery/>
         </div>
-        <div className="flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-8 max-w-md md:max-w-lg w-full px-4">
+        <div className="flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-8 max-w-md  w-full px-4">
           <h1 className="text-2xl font-bold text-center md:text-left">{tour.title}</h1>
           <div className="flex items-center mt-2">
             {Array(tour.rating).fill().map((_, i) => (
@@ -73,11 +75,9 @@ const TourDetail = () => {
             </span>
           </div>
           <div className="text-xl font-bold text-gray-900 mt-2">${tour.price}</div>
-          <div className='flex'>
-          <p><span className='text-lg m-2 text-emerald-700 font-medium'>Days: </span>{tour.days}</p>
-          <p><span className='text-lg m-2 text-emerald-700 font-medium'>  Seats: </span>{tour.seats}</p>
-          </div>
-          <p className="mt-2 text-gray-600 text-center md:text-left">{tour.description}</p>
+          <p><span className='text-lg  text-emerald-700 font-medium'>Days: </span>{tour.days}</p>
+          <p><span className='text-lg text-emerald-700 font-medium'>  Seats: </span>{tour.seats}</p>
+          {/* <p className="mt-2 text-gray-600 text-center md:text-left">{tour.description}</p> */}
           <div className="flex flex-col md:items-start mt-2 max-w-md md:max-w-xl w-full ">
             <h1 className="text-xl md:text-xl text-emerald-700 font-semibold mt-2">Contact Info</h1>
             <p className='text-gray-500'><span className='font-medium text-yellow-500'>Company Name: </span> {tour.company}</p>
@@ -96,7 +96,7 @@ const TourDetail = () => {
       <TourHighlights />
       <hr />
       {/* Gallery */}
-      <TourGallery />
+      {/* <TourGallery /> */}
       {/* Blogs */}
       <TourBlogs />
     </div>

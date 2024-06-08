@@ -61,7 +61,7 @@ const Tours = () => {
                 <TextInput
                   type="text"
                   id="city"
-                  placeholder="Enter your city here"
+                  placeholder="Search your tour here"
                   className="text-lg flex-grow p-4"
                   icon={FaMapLocationDot}
                 />
@@ -80,8 +80,7 @@ const Tours = () => {
             imgSrc={tour.image}
             onClick={() => handleCardClick(tour.slug)}
           >
-            <div className='tour-card1'>
-              <h5 className="md:text-md font-semibold tracking-tight text-gray-900">
+              <h5 className=" md:text-md font-semibold tracking-tight text-gray-900">
                 {tour.title}
               </h5>
               <div className="flex items-center">
@@ -95,13 +94,7 @@ const Tours = () => {
               <p className="text-sm text-gray-500">{tour.company}</p>
               <div className="flex items-center justify-between">
                 <span className="text-md font-bold text-gray-900">${tour.price}</span>
-                <p
-                  className="rounded-lg p-1 bg-emerald-700 text-center text-sm font-medium text-white hover:bg-cyan-800"
-                >
-                  View
-                </p>
               </div>
-            </div>
           </Card>
         ))}
       </div>
@@ -113,3 +106,4 @@ const Tours = () => {
 }
 
 export default Tours;
+

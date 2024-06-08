@@ -42,7 +42,7 @@ const TourHighlights = () => {
 
     return (
         <div>
-            <h2 className="text-xl md:text-2xl flex items-center justify-center text-emerald-700 font-semibold m-6">
+            <h2 className="text-xl md:text-2xl flex items-center justify-center text-emerald-700 font-semibold m-4">
                 Tour Highlights
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
