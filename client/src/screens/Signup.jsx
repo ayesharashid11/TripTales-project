@@ -65,25 +65,25 @@ const Signup = () => {
           <form className="space-y-5" onSubmit={handleSubmit}>
             {userType === 'tourist' && (
               <>
-                <div className="relative z-0 w-full group">
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "
-                    // required
-                    value={values.name}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                  {errors.name && touched.name ? (
-                    <p className="text-red-400 text-sm">{errors.name}</p>
-                  ) : null}
-                  <label htmlFor="name" className="peer-focus:font-medium absolute text-sm text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                    Name
-                  </label>
-                </div>
                 <div className="grid md:grid-cols-2 md:gap-6">
+                  <div className="relative z-0 w-full group">
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "
+                      // required
+                      value={values.name}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.name && touched.name ? (
+                      <p className="text-red-400 text-sm">{errors.name}</p>
+                    ) : null}
+                    <label htmlFor="name" className="peer-focus:font-medium absolute text-sm text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                      Name
+                    </label>
+                  </div>
                   <div className="relative z-0 w-full group">
                     <input type="text" name="email" id="email" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                       placeholder=" "
@@ -98,6 +98,8 @@ const Signup = () => {
                       Email
                     </label>
                   </div>
+                </div>
+                <div className="grid md:grid-cols-2 md:gap-6">
                   <div className="relative z-0 w-full group">
                     <input type="password" name="password" id="password" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                       placeholder=" "
@@ -109,6 +111,18 @@ const Signup = () => {
                       <p className="text-red-400 text-sm">{errors.password}</p>
                     ) : null}
                     <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+                  </div>
+                  <div className="relative z-0 w-full group">
+                    <input type="password" name="confirm_password" id="confirm_password" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" " required
+                      value={values.confirm_password}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.confirm_password && touched.confirm_password ? (
+                      <p className="text-red-400 text-sm">{errors.confirm_password}</p>
+                    ) : null}
+                    <label htmlFor="confirm_password" className="peer-focus:font-medium absolute text-sm text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm Password</label>
                   </div>
                 </div>
               </>

@@ -42,7 +42,6 @@ exports.getTour = catchAsync(async (req, res, next) => {
 exports.getAllTours = catchAsync(async (req, res, next) => {
   const tours = await Tour.find().populate('user', 'companyName');
   res.status(200).json({
-    status: 'success',
     results: tours.length,
     data: {
       tours
