@@ -1,6 +1,6 @@
 const Blog = require('../models/blogSchema');
 const catchAsync = require('../utils/catchAsync');
-
+const AppError = require('../utils/appError');
 exports.createBlog = catchAsync(async (req, res, next) => {
   const images = [];
   const videos = [];
@@ -26,7 +26,10 @@ exports.createBlog = catchAsync(async (req, res, next) => {
 });
 
 exports.getBlog = catchAsync(async (req, res, next) => {
-  const blog = await Blog.findById(req.params.id);
+  const blog = await Blog.findById(req.params.id).populate({
+    path: 'user',
+    select: 'name -_id'
+  });
   if (!blog) {
     return next(new AppError('No blog found with that ID', 404));
   }
@@ -37,14 +40,13 @@ exports.getBlog = catchAsync(async (req, res, next) => {
     }
   });
 });
-
-exports.getAllBlogs = catchAsync(async (req, res, next) => {
-  const blogs = await Blog.find();
-  res.status(200).json({
-    status: 'success',
-    results: blogs.length,
-    data: {
-      blogs
-    }
+  exports.getAllBlogs = catchAsync(async (req, res, next) => {
+    const blogs = await Blog.find();
+    res.status(200).json({
+      status: 'success',
+      results: blogs.length,
+      data: {
+        blogs
+      }
+    });
   });
-});

@@ -8,6 +8,7 @@ import TourHighlights from '../components/tour-datail/TourHighlights';
 import TourGallery from '../components/tour-datail/TourGallery';
 import TourBlogs from '../components/tour-datail/TourBlogs';
 import RelatedTourGallery from '../components/tour-datail/RelatedTourGallery';
+import TourReview from '../components/tour-datail/TourReview';
 
 const tours = {
   'starlight-sport': {
@@ -97,8 +98,8 @@ const TourDetail = () => {
       <hr />
       {/* Gallery */}
       {/* <TourGallery /> */}
-      {/* Blogs */}
       <TourBlogs />
+      <TourReview />
     </div>
   );
 };
