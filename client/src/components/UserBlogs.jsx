@@ -30,13 +30,13 @@ const BlogCards = () => {
         <RiArticleFill className='text-4xl mr-3 text-yellow-500' />
         Tourist Blogs
       </h2>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-5'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-5'>
         {blogPosts.map(post => (
           <Link to={`/blogs/${post.title.toLowerCase().replace(/\s+/g, '-')}`} key={post.id} className='relative rounded-lg overflow-hidden'>
             <div className='h-64'>
               <img src={post.image} alt={post.title} className='w-full h-full object-cover' />
             </div>
-            <div className='absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-white'>
+            <div className='absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2 text-white'>
               <div className='flex items-center mb-2'>
                 <img src={img7} alt={post.user} className='w-8 h-8 rounded-full mr-2' />
                 <div>
