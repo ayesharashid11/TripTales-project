@@ -40,13 +40,23 @@ exports.getBlog = catchAsync(async (req, res, next) => {
     }
   });
 });
-  exports.getAllBlogs = catchAsync(async (req, res, next) => {
-    const blogs = await Blog.find();
-    res.status(200).json({
-      status: 'success',
-      results: blogs.length,
-      data: {
-        blogs
-      }
-    });
+
+exports.getAllBlogs = catchAsync(async (req, res, next) => {
+  const page = req.query.page ? parseInt(req.query.page, 10) : 1;
+  const limit = 12;
+  const skip = (page - 1) * limit;
+  const blogs = await Blog.find().populate({
+    path: 'user',
+    select: 'name -_id'
+  })
+    .skip(skip)
+    .limit(limit);
+
+  res.json({
+    page,
+    results: blogs.length,
+    data: {
+      blogs
+    }
   });
+});

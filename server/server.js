@@ -6,11 +6,15 @@ const authRouter = require('./routes/authRoutes');
 const blogRouter = require('./routes/blogRoutes');
 const tourRouter = require('./routes/tourRoutes');
 const reviewrouter = require('./routes/reviewRoutes');
+const cors = require('cors');
 // const fs = require('fs');
 // const path = require('path');
 
 dotenv.config();
 const app= express();
+app.use(cors({
+  origin: "http://localhost:5173"
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 
