@@ -62,23 +62,22 @@ const TourDetail = () => {
       </h2>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center mb-[2%] px-4">
         <div className="w-full md:w-1/2 max-w-lg mb-3">
-          {/* <img src={tour.image} alt={tour.title} className="w-full rounded-lg shadow-lg" /> */}
-          <RelatedTourGallery />
+          <img src={tour.image} alt={tour.title} className="w-full rounded-lg shadow-lg" />
+          {/* <RelatedTourGallery /> */}
         </div>
         <div className="flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-8 max-w-md  w-full px-4">
-          <h1 className="text-2xl font-bold text-center md:text-left">{tour.title}</h1>
-          <div className="flex items-center mt-2">
-            {Array(tour.rating).fill().map((_, i) => (
-              <IoStarSharp key={i} className="text-yellow-300" />
-            ))}
-            <span className="ml-3 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800">
-              {tour.rating}
-            </span>
+          <div className=' flex '><h1 className="text-2xl font-bold text-center md:text-left">{tour.title}</h1>
+            <div className="flex items-center ml-5">
+              {Array(tour.rating).fill().map((_, i) => (
+                <IoStarSharp key={i} className="text-yellow-300" />
+              ))}
+            </div>
           </div>
           <div className="text-xl font-bold text-gray-900 mt-2">${tour.price}</div>
           <p><span className='text-lg  text-emerald-700 font-medium'>Days: </span>{tour.days}</p>
           <p><span className='text-lg text-emerald-700 font-medium'>  Seats: </span>{tour.seats}</p>
-          {/* <p className="mt-2 text-gray-600 text-center md:text-left">{tour.description}</p> */}
+          <p className="mt-2 text-gray-600 text-center md:text-left">{tour.departureAddress}</p>
+
           <div className="flex flex-col md:items-start mt-2 max-w-md md:max-w-xl w-full ">
             <h1 className="text-xl md:text-xl text-emerald-700 font-semibold mt-2">Contact Info</h1>
             <p className='text-gray-500'><span className='font-medium text-yellow-500'>Company Name: </span> {tour.company}</p>
@@ -89,7 +88,7 @@ const TourDetail = () => {
             <hr />
           </div>
         </div>
-        <div><p className="text-emerald-700   text-md font-medium cursor-pointer hover:text-emerald-300  ">Book Now</p></div>
+        <p className="text-emerald-700   text-md font-medium cursor-pointer hover:text-emerald-300  ">Book Now</p>
         <p className="text-emerald-700  text-md font-medium cursor-pointer hover:text-emerald-300 ">Add Review</p>
       </div>
       {/* Highlights */}

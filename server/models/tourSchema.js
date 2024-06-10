@@ -36,9 +36,9 @@ const tourSchema = new mongoose.Schema({
     type: Number,
     require: true
   },
-  image:{
+  image:[{
     type: String
-  },
+  }],
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
