@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Label, TextInput, Pagination, Card } from "flowbite-react";
-import { FaMapLocationDot } from "react-icons/fa6";
-import { FaSearchLocation } from "react-icons/fa";
+import {Pagination, Card } from "flowbite-react";
 import seaview from '../assets/seaview.jpg';
-import scene3 from '../assets/scene3.jpg';
 import { IoStarSharp } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import '../screens/styles.css';
+import SearchTour from '../components/SearchTour';
 
 const Tours = () => {
   const navigate = useNavigate();
@@ -49,28 +47,7 @@ const Tours = () => {
 
   return (
     <div className='mt-[80px]'>
-      <div className="relative h-[50vh] w-full bg-cover bg-center">
-        <img src={scene3} className="h-full w-full object-cover" alt="Background" />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-30">
-          <div className="relative z-10 w-full max-w-md p-4 bg-white bg-opacity-70 rounded-lg shadow-lg">
-            <form>
-              <div className="flex items-center justify-center">
-                <Label htmlFor="city" className="font-medium text-emerald-700 text-lg">
-                  Location
-                </Label>
-                <TextInput
-                  type="text"
-                  id="city"
-                  placeholder="Search your tour here"
-                  className="text-lg flex-grow p-4"
-                  icon={FaMapLocationDot}
-                />
-                <FaSearchLocation className="text-5xl p-2 bg-emerald-700 text-white rounded cursor-pointer" />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+   <SearchTour />
       <div className='flex flex-col md:flex-row m-6'>
         {featuredTours.map(tour => (
           <Card
@@ -94,6 +71,7 @@ const Tours = () => {
               <p className="text-sm text-gray-500">{tour.company}</p>
               <div className="flex items-center justify-between">
                 <span className="text-md font-bold text-gray-900">${tour.price}</span>
+                <p>{tour.days}Days</p>
               </div>
           </Card>
         ))}
@@ -106,4 +84,3 @@ const Tours = () => {
 }
 
 export default Tours;
-
