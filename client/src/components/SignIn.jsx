@@ -3,6 +3,7 @@ import React from 'react'
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import OAuth from './OAuth';
 
 const Signin = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -29,16 +30,13 @@ const Signin = () => {
               <TextInput id="password" type="password" required />
             </div>
             <div className="flex justify-between">
-              <div className="flex items-center gap-2">
-                <Checkbox id="remember" />
-                <Label htmlFor="remember">Remember me</Label>
-              </div>
               <a href="#" className="text-sm text-cyan-700 hover:underline">
                 Lost Password?
               </a>
+              <p className='text-emerald-700 cursor-pointer underline'>Log in</p>
             </div>
-            <div className="w-full">
-              <Button className='bg-emerald-700 '>Log in to your account</Button>
+            <div className="">
+              <OAuth />
             </div>
             <div className="flex justify-between text-sm font-medium text-gray-500">
               Not registered?&nbsp;
