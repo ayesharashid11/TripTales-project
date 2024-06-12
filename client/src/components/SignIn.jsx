@@ -1,9 +1,7 @@
 import React from 'react'
-
-import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
+import { Button, Label, Modal, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-import OAuth from './OAuth';
 
 const Signin = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -34,9 +32,6 @@ const Signin = () => {
                 Lost Password?
               </a>
               <p className='text-emerald-700 cursor-pointer underline'>Log in</p>
-            </div>
-            <div className="">
-              <OAuth />
             </div>
             <div className="flex justify-between text-sm font-medium text-gray-500">
               Not registered?&nbsp;
