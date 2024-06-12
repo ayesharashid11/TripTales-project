@@ -11,6 +11,7 @@ import TourDetail from './screens/TourDetail';
 import BlogDetail from './screens/BlogDetail';
 import CreateTour from './screens/CreateTour';
 import Layout from './components/layout';
+import AuthRoute from './components/AuthRoute';
 
 const App = () => {
   return (
@@ -49,7 +50,12 @@ const App = () => {
           <Layout>
             <Weather />
           </Layout>} />
-        <Route path="/create-tour" element={<CreateTour />} />
+        {/* <Route path="/create-tour" element={<CreateTour />} /> */}
+        <Route path="/create-tour" element={
+          <AuthRoute>
+            <CreateTour />
+          </AuthRoute>
+        } />
       </Routes>
     </BrowserRouter>
   );
