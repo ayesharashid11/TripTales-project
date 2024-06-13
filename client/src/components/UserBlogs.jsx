@@ -27,7 +27,7 @@ const BlogCards = () => {
         {blogs.map((post) => (
           <Link to={`/blogs/${post.title.toLowerCase().replace(/\s+/g, '-')}`} key={post._id} className='relative rounded-lg overflow-hidden'>
             <div className='h-64'>
-              <img src={post.images[0]} alt={post.title} className='w-full h-full object-cover' />
+              <img src={'http://localhost:8080/api/uploads/' +  post.images[0]} alt={post.title} className='w-full h-full object-cover' />
             </div>
             <div className='absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2 text-white'>
               <div className='flex items-center mb-2'>

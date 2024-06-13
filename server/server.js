@@ -7,6 +7,7 @@ const blogRouter = require('./routes/blogRoutes');
 const tourRouter = require('./routes/tourRoutes');
 const reviewrouter = require('./routes/reviewRoutes');
 const cors = require('cors');
+const path = require ('path');
 // const fs = require('fs');
 // const path = require('path');
 
@@ -18,7 +19,7 @@ app.use(cors({
 }));
 app.use(morgan('dev'));
 app.use(express.json());
-
+app.use('/api/uploads', express.static(path.join(__dirname, 'uploads', 'images')));
 app.use('/api/auth', authRouter);
 app.use('/api/blogs' , blogRouter);
 app.use('/api/tours', tourRouter);
