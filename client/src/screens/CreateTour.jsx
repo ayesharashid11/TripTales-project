@@ -17,7 +17,7 @@ const CreateTour = () => {
         seats: '',
         email: '',
         phoneNo: '',
-        file: null,
+        files: null,
     });
 
     const { loading, error } = useSelector((state) => state.tour || { loading: false, error: null });
@@ -36,7 +36,7 @@ const CreateTour = () => {
     const handleFileChange = (e) => {
         setFormData((prev) => ({
             ...prev,
-            file: e.target.files[0],
+            files: e.target.files,
         }));
     };
 
@@ -44,7 +44,13 @@ const CreateTour = () => {
         e.preventDefault();
         const data = new FormData();
         for (const key in formData) {
-            data.append(key, formData[key]);
+            if (key === 'files') {
+                for (let i = 0; i < formData[key].length; i++) {
+                    data.append('files', formData[key][i]); 
+                }
+            } else {
+                data.append(key, formData[key]);
+            }
         }
         if (userId) { 
             data.append('user', userId); 
@@ -206,11 +212,12 @@ const CreateTour = () => {
                         <div className="relative z-0 w-full group">
                             <input
                                 type="file"
-                                name="file"
-                                id="file"
+                                name="files"
+                                id="files"
                                 className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                 placeholder=" "
                                 onChange={handleFileChange}
+                                multiple
                             />
                         </div>
                         <h1 className="text-md md:text-xl text-white font-medium">Contact Details</h1>

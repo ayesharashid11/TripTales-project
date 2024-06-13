@@ -49,7 +49,7 @@ const authSlice = createSlice({
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.loading = false;
-                state.user =  action.payload.data.user
+                state.user =  action.payload.data.user;
                 state.token = action.payload.token;
                 localStorage.setItem('token', action.payload.token);
                 state.error = null;
