@@ -42,6 +42,29 @@ exports.getTour = catchAsync(async (req, res, next) => {
   });
 });
 
+// const Review = require('../models/reviewSchema'); 
+// exports.getTour = catchAsync(async (req, res, next) => {
+//   const tourId = req.params.id;
+
+//   const tour = await Tour.findById(tourId).populate('user', 'companyName -_id');
+//   if (!tour) {
+//     return next(new AppError('No tour found with that ID', 404));
+//   }
+
+//   const reviews = await Review.find({ tour: tourId }).populate('user', 'name -_id');
+
+//   const averageRating = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length || 0;
+
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       tour,
+//       averageRating: averageRating.toFixed(2)
+//     }
+//   });
+// });
+
+
 exports.getAllTours = catchAsync(async (req, res, next) => {
   const page = req.query.page ? parseInt(req.query.page, 10) : 1;
   const limit = 10;

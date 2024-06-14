@@ -6,35 +6,35 @@ const tourSchema = new mongoose.Schema({
   },
   seats: {
     type: Number,
-    require: true
+    required: true
   },
   totalDays: {
     type: Number,
-    require: true
+    required: true
   },
   price: {
     type: Number,
-    require: true
+    required: true
   },
   country:{
     type: String,
-    require: true
+    required: true
   },
   city:{
     type: String,
-    require: true
+    required: true
   },
   departureAddress: {
     type: String,
-    require: true
+    required: true
   },
   email:{
     type: String,
-    require: true
+    required: true
   },
   phoneNo:{
     type: Number,
-    require: true
+    required: true
   },
   image:[{
     type: String
@@ -45,5 +45,6 @@ const tourSchema = new mongoose.Schema({
     required: true
   }
 });
+
 const Tour = mongoose.model('Tour', tourSchema);
 module.exports = Tour;

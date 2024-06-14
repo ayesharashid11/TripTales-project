@@ -20,15 +20,15 @@ const TourDetail = () => {
   }, [dispatch, id]);
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <div className='text-yellow-600 text-xl'>Loading...</div>;
   }
 
   if (status === 'failed') {
-    return <div>Error: {error}</div>;
+    return <div className='text-yellow-600 text-xl'>Error: {error}</div>;
   }
 
   if (!tour) {
-    return <div>Tour not found</div>;
+    return <div className='text-yellow-600 text-xl'>Tour not found</div>;
   }
 
   return (
