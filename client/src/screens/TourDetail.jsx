@@ -72,7 +72,7 @@ const TourDetail = () => {
       <TourHighlights />
       <hr />
       <TourBlogs />
-      <TourReview />
+      <TourReview tourId={id}/>
     </div>
   );
 };
