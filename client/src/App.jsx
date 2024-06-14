@@ -44,7 +44,7 @@ const App = () => {
           <Layout>
             <Tours />
           </Layout>} />
-        <Route path="/tours/:tourName" element={
+        <Route path="/tours/:id" element={
           <Layout>
             <TourDetail />
           </Layout>} />

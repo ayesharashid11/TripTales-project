@@ -1,51 +1,72 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
-export const createTour = createAsyncThunk(
-  'tour/createTour',
-  async ({ tourData }, { rejectWithValue }) => {
-    try {
-      const response = await axios.post('http://localhost:8080/api/tours/createtour', tourData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      return response.data;
-    } catch (error) {
-      const message = error.response && error.response.data && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-      toast.error(message);
-      return rejectWithValue(message);
-    }
+export const fetchTours = createAsyncThunk(
+  'tours/fetchTours',
+  async (page = 1) => {
+    const response = await axios.get(`http://localhost:8080/api/tours/getalltours?page=${page}`);
+    return response.data;
   }
 );
 
-const tourSlice = createSlice({
-  name: 'tour',
-  initialState: {
-    tour: null,
-    loading: false,
-    error: null,
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(createTour.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(createTour.fulfilled, (state, action) => {
-        state.loading = false;
-        state.tour = action.payload;
-        toast.success('Tour created successfully!');
-      })
-      .addCase(createTour.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
-  },
+export const fetchTourById = createAsyncThunk('tours/fetchTourById', async (id) => {
+  try {
+    const response = await axios.get(`http://localhost:8080/api/tours/gettour/${id}`);
+    return response.data.data.tour;
+  } catch (error) {
+    throw Error(error.response.data.message || 'Failed to fetch tour');
+  }
 });
 
+const tourSlice = createSlice({
+  name: 'tours',
+  initialState: {
+    tours: [],
+    tour: null,
+    status: 'idle',
+    error: null,
+    page: 1,
+  },
+  reducers: {
+    setPage(state, action) {
+      state.page = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchTours.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchTours.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.tours = action.payload.data.tours;
+      })
+      .addCase(fetchTours.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+    
+        builder.addCase(fetchTourById.pending, (state) => {
+        state.status = 'loading';
+      });
+      builder.addCase(fetchTourById.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.tour = action.payload;
+      });
+      builder.addCase(fetchTourById.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
+
+  },
+});
+export const selectAllTours = (state) => state.tour.tours;
+export const selectTour = (state) => state.tour.tour;
+export const selectStatus = (state) => state.tour.status;
+export const selectError = (state) => state.tour.error;
+
+export const { setPage } = tourSlice.actions;
+
 export default tourSlice.reducer;
+
+

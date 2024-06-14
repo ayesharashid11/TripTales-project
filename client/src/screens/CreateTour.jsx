@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createTour } from '../slices/tour/tourSlice';
+import { createTour } from '../slices/tour/createTourSlice';
 import mount2 from '../assets/mount2.jpg';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
