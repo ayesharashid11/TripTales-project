@@ -3,11 +3,10 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
 exports.createBlog = catchAsync(async (req, res, next) => {
-  console.log("==================", req.files);
   const images = [];
   const videos = [];
   req.files.forEach(file => {
-    console.log("file file file=============", file);
+    // console.log("file file file=============", file);
     if (file.mimetype.startsWith('image/')) {
       images.push(file.filename);
     } else if (file.mimetype.startsWith('video/')) {

@@ -3,8 +3,8 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
 exports.createTour = catchAsync(async (req, res, next) => {
-  // const image = req.files && req.files.length > 0 ? req.files[0].path : '';
-  const images = req.files.map(file => file.path);
+  const images = req.files.map(file => file.filename);
+  
   const newTour = await Tour.create({
     tourName: req.body.tourName,
     seats: req.body.seats,
@@ -18,10 +18,13 @@ exports.createTour = catchAsync(async (req, res, next) => {
     user: req.body.user,
     image: images
   });
+
+  const populatedTour = await Tour.findById(newTour._id).populate('user', 'name');
+
   res.status(201).json({
     status: 'success',
     data: {
-      tour: newTour
+      tour: populatedTour
     }
   });
 });
@@ -53,4 +56,6 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+
 
