@@ -7,7 +7,7 @@ import { FaPersonWalkingLuggage } from 'react-icons/fa6'
 import TourHighlights from '../components/tour-datail/TourHighlights';
 import TourBlogs from '../components/tour-datail/TourBlogs';
 import TourReview from '../components/tour-datail/TourReview';
-
+import BookNow from '../components/BookNow';
 const TourDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -65,7 +65,8 @@ const TourDetail = () => {
           </div>
         </div>
         <div>
-          <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Book Now</p>
+          {/* <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Book Now</p> */}
+          <BookNow tourId={id} />
           <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Add Review</p>
         </div>
       </div>

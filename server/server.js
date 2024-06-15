@@ -6,6 +6,7 @@ const authRouter = require('./routes/authRoutes');
 const blogRouter = require('./routes/blogRoutes');
 const tourRouter = require('./routes/tourRoutes');
 const reviewrouter = require('./routes/reviewRoutes');
+const paymentRoutes = require('./payment-integration/jazzcashRoute');
 const cors = require('cors');
 const path = require ('path');
 // const fs = require('fs');
@@ -24,7 +25,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/blogs' , blogRouter);
 app.use('/api/tours', tourRouter);
 app.use('/api/review', reviewrouter);
-
+app.use('/api/payment', paymentRoutes);
 
 // const createDirectories = () => {
 //   const imageUploadDir = path.join(__dirname, '..', 'uploads', 'images');
