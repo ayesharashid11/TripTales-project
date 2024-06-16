@@ -66,7 +66,7 @@ const TourDetail = () => {
         </div>
         <div>
           {/* <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Book Now</p> */}
-          <BookNow />
+           <BookNow /> 
           <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Add Review</p>
         </div>
       </div>
@@ -79,3 +79,4 @@ const TourDetail = () => {
 };
 
 export default TourDetail;
+

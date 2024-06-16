@@ -16,7 +16,6 @@ const JC = {
     Jazzcash.createRequest('WALLET').then(res => {
       res = JSON.parse(res);
       console.log(res);
-
       // callback function
       callback(res);
     });
@@ -26,7 +25,6 @@ const JC = {
     Jazzcash.setData(data);
     Jazzcash.createRequest('PAY').then(res => {
       console.log(res);
-
       // callback function
       callback(res);
     });
@@ -37,7 +35,6 @@ const JC = {
     Jazzcash.createRequest('REFUND').then(res => {
       res = JSON.parse(res);
       console.log(res);
-
       // callback function
       callback(res);
     });
@@ -48,7 +45,6 @@ const JC = {
     Jazzcash.createRequest('INQUIRY').then(res => {
       res = JSON.parse(res);
       console.log(res);
-
       // callback function
       callback(res);
     });
