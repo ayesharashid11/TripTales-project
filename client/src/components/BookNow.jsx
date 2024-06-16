@@ -8,6 +8,7 @@ import { pay } from '../slices/paymnet/paymentSlice';
 export default function BookNow() {
   const [openModal, setOpenModal] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [responseModal, setResponseModal] = useState(false);
   const dispatch = useDispatch();
   const { id: tourId } = useParams();
   const { tour, status, error } = useSelector((state) => state.tours);
@@ -26,13 +27,19 @@ export default function BookNow() {
       return;
     }
 
-    dispatch(pay({ userId: user._id, tourId, mobileNumber: phoneNumber }));
-    onCloseModal();
+    dispatch(pay({ userId: user._id, tourId, mobileNumber: phoneNumber })).then(() => {
+      setResponseModal(true);
+      onCloseModal();
+    });
   };
 
   const onCloseModal = () => {
     setOpenModal(false);
     setPhoneNumber('');
+  };
+
+  const onCloseResponseModal = () => {
+    setResponseModal(false);
   };
 
   return (
@@ -48,13 +55,13 @@ export default function BookNow() {
         <Modal.Body>
           <div className="space-y-6">
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">Pay with JazzCash</h3>
-            {status === 'loading' && <p>Loading tour details...</p>}
+            {status === 'loading' && <p className='text-emerald-700 text-xl'>Loading tour details...</p>}
             {status === 'failed' && <p className="text-red-500">{error}</p>}
             {tour && (
               <>
                 <div>
-                  <p>Tour: {tour.tourName}</p>
-                  <p>Price: {tour.price}</p>
+                  <p className='text-emerald-700 text-xl'>Tour:<span className='text-yellow-500'>{tour.tourName}</span> </p>
+                  <p className='text-emerald-700 text-xl'>Price:<span className='text-yellow-500'>{tour.price}</span> </p>
                 </div>
                 <div>
                   <div className="mb-2 block">
@@ -73,14 +80,22 @@ export default function BookNow() {
                     {loading ? 'Processing...' : 'Pay Now'}
                   </Button>
                 </div>
-                {response && (
-                  <div>
-                    <p>Payment Successful</p>
-                    <p>User Email: {response.userEmail}</p>
-                    <p>Tour Name: {response.tourName}</p>
-                    <p>Tour Price: {response.tourPrice}</p>
-                  </div>
-                )}
+              </>
+            )}
+          </div>
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={responseModal} size="md" onClose={onCloseResponseModal} popup>
+        <Modal.Header />
+        <Modal.Body>
+          <div className="space-y-6">
+            <h3 className="text-xl font-medium text-emerald-700 ">Payment Successful</h3>
+            {response && (
+              <>
+                <p>User Email: {response.userEmail}</p>
+                <p>Tour Name: {response.tourName}</p>
+                <p>Tour Price: {response.tourPrice}</p>
               </>
             )}
           </div>

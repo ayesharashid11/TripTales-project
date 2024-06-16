@@ -8,7 +8,7 @@ import TourHighlights from '../components/tour-datail/TourHighlights';
 import TourBlogs from '../components/tour-datail/TourBlogs';
 import TourReview from '../components/tour-datail/TourReview';
 import BookNow from '../components/BookNow';
-const TourDetail = () => {
+const TourDetail=() =>  {
   const { id } = useParams();
   const dispatch = useDispatch();
   const tour = useSelector((state) => state.tours.tour);
