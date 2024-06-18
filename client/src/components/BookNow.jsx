@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchTourById } from '../slices/tour/tourSlice';
 import { pay } from '../slices/paymnet/paymentSlice';
+import { toast } from 'react-toastify';
 
 export default function BookNow() {
   const [openModal, setOpenModal] = useState(false);
@@ -23,10 +24,9 @@ export default function BookNow() {
 
   const handlePayNow = () => {
     if (!user) {
-      console.error('User not logged in');
+      toast.error('You must be logged in to book a tour!');
       return;
     }
-
     dispatch(pay({ userId: user._id, tourId, mobileNumber: phoneNumber })).then(() => {
       setResponseModal(true);
       onCloseModal();
@@ -44,10 +44,8 @@ export default function BookNow() {
 
   return (
     <>
-      <p
-        className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'
-        onClick={() => setOpenModal(true)}
-      >
+      <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'
+        onClick={() => setOpenModal(true)}>
         Book Now
       </p>
       <Modal show={openModal} size="md" onClose={onCloseModal} popup>

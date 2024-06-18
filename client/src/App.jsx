@@ -12,8 +12,9 @@ import BlogDetail from './screens/BlogDetail';
 import CreateTour from './screens/CreateTour';
 import Layout from './components/layout';
 import AuthRoute from './components/AuthRoute';
-
-const App = () => {
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const App =() =>{
   return (
     <BrowserRouter>
       <Routes>
@@ -59,6 +60,7 @@ const App = () => {
           </AuthRoute>
         } />
       </Routes>
+      {/* <ToastContainer /> */}
     </BrowserRouter>
   );
 };
