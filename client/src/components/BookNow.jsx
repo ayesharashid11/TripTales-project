@@ -5,8 +5,11 @@ import { useParams } from 'react-router-dom';
 import { fetchTourById } from '../slices/tour/tourSlice';
 import { pay } from '../slices/paymnet/paymentSlice';
 import { toast } from 'react-toastify';
+import { FaUserAlt } from "react-icons/fa";
+import { GrMapLocation } from "react-icons/gr";
+import { MdPayments } from "react-icons/md";
 
-export default function BookNow() {
+const BookNow = () => {
   const [openModal, setOpenModal] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [responseModal, setResponseModal] = useState(false);
@@ -57,9 +60,9 @@ export default function BookNow() {
             {status === 'failed' && <p className="text-red-500">{error}</p>}
             {tour && (
               <>
-                <div>
-                  <p className='text-emerald-700 text-xl'>Tour:<span className='text-yellow-500'>{tour.tourName}</span> </p>
-                  <p className='text-emerald-700 text-xl'>Price:<span className='text-yellow-500'>{tour.price}</span> </p>
+                <div >
+                  <p className='text-emerald-700 text-xl'><span className='text-yellow-500'>{tour.tourName}</span> </p>
+                  <p className='text-emerald-700 text-xl'>Total Price: <span className='text-yellow-500'> $ {tour.price}</span> </p>
                 </div>
                 <div>
                   <div className="mb-2 block">
@@ -87,13 +90,19 @@ export default function BookNow() {
       <Modal show={responseModal} size="md" onClose={onCloseResponseModal} popup>
         <Modal.Header />
         <Modal.Body>
-          <div className="space-y-6">
-            <h3 className="text-xl font-medium text-emerald-700 ">Payment Successful</h3>
+          <div className=" p-3 ">
+            <h3 className="text-xl font-medium text-yellow-700 ">Payment Successful</h3>
             {response && (
               <>
-                <p>User Email: {response.userEmail}</p>
-                <p>Tour Name: {response.tourName}</p>
-                <p>Tour Price: {response.tourPrice}</p>
+                <p className='flex'>
+                  <FaUserAlt className=' mr-2  text-emerald-700 font-medium text-xl' /> 
+                  {response.userEmail}
+                  </p>
+                <p className='flex'>
+                  <GrMapLocation className=' mr-2  text-emerald-700 font-medium text-xl' /> {response.tourName}
+                  </p>
+                <p className='flex'>
+                  <MdPayments className=' mr-2  text-emerald-700 font-medium text-xl'/>$ {response.tourPrice}  </p>              
               </>
             )}
           </div>
@@ -102,3 +111,4 @@ export default function BookNow() {
     </>
   );
 }
+export default BookNow;
