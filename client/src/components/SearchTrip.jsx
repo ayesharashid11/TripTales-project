@@ -12,19 +12,20 @@ const SearchTrip = () => {
                 <h2 className="text-3xl flex items-center justify-center text-emerald-700 font-semibold mb-4">
                     <GiMountains className='text-4xl mr-3  text-yellow-500' />  Search your Trip</h2>
                 <div className="flex items-center justify-center ">
-                    <div className="bg-white p-8 rounded shadow-md w-full max-w-4xl">
+                    <div className=" p-8 rounded shadow-lg">
                         <form className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
-                            <div className="flex flex-col w-full md:w-1/3">
-                                <Label htmlFor="city" className="mb-2 ">City</Label>
+                            <div className="flex  w-full">
+                                <Label htmlFor="city" className="m-3 md:text-lg text-emerald-700 font-medium">Trip</Label>
                                 <TextInput
                                     type="text"
                                     id="city"
-                                    placeholder="Enter your city here"
-                                    className="text-lg w-full"
+                                    placeholder="Search your trip here"
+                                    className="text-lg "
                                     icon={FaMapLocationDot}
                                 />
+                                 <FaSearchLocation className='text-4xl ml-3 p-1 bg-emerald-700 text-white rounded cursor-pointer' />
                             </div>
-                            <div className="flex flex-col w-full md:w-1/3">
+                            {/* <div className="flex flex-col w-full md:w-1/3">
                                 <Label htmlFor="date" className="mb-2">Date</Label>
                                 <TextInput
                                     type="date"
@@ -39,8 +40,8 @@ const SearchTrip = () => {
                                     id="range"
                                     className=" w-full"
                                 />
-                            </div>
-                            <FaSearchLocation className='text-5xl p-2 bg-emerald-700 text-white rounded cursor-pointer' />
+                            </div> */}
+                           
                         </form>
                     </div>
                 </div>
