@@ -1,10 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// export const fetchTours = createAsyncThunk(
+//   'tours/fetchTours',
+//   async (page = 1) => {
+//     const response = await axios.get(`http://localhost:8080/api/tours/getalltours?page=${page}`);
+//     return response.data;
+//   }
+// );
 export const fetchTours = createAsyncThunk(
   'tours/fetchTours',
-  async (page = 1) => {
-    const response = await axios.get(`http://localhost:8080/api/tours/getalltours?page=${page}`);
+  async ({ page = 1, query = '' } = {}) => {
+    const response = await axios.get(`http://localhost:8080/api/tours/getalltours`, {
+      params: { page, query },
+    });
     return response.data;
   }
 );
@@ -26,6 +35,7 @@ const tourSlice = createSlice({
     status: 'idle',
     error: null,
     page: 1,
+    totalPages: 1,
   },
   reducers: {
     setPage(state, action) {
@@ -40,6 +50,7 @@ const tourSlice = createSlice({
       .addCase(fetchTours.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.tours = action.payload.data.tours;
+        state.totalPages = action.payload.data.totalPages;
       })
       .addCase(fetchTours.rejected, (state, action) => {
         state.status = 'failed';
@@ -64,9 +75,5 @@ export const selectAllTours = (state) => state.tour.tours;
 export const selectTour = (state) => state.tour.tour;
 export const selectStatus = (state) => state.tour.status;
 export const selectError = (state) => state.tour.error;
-
 export const { setPage } = tourSlice.actions;
-
 export default tourSlice.reducer;
-
-
