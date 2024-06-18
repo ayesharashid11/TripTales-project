@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import { Button, FileInput, TextInput } from 'flowbite-react';
@@ -11,9 +9,10 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
-const CreateBlog = () => {
+export default function CreateBlog() {
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const { user, token } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -42,6 +41,7 @@ const CreateBlog = () => {
     const data = new FormData();
     data.append('title', formData.title);
     data.append('content', formData.content);
+    data.append('user', user._id); 
     for (const file of formData.files) {
       data.append('files', file);
     }
@@ -49,33 +49,11 @@ const CreateBlog = () => {
     try {
       await dispatch(createBlog({ blogData: data, token })).unwrap();
       toast.success('Blog created successfully!');
-      navigate('/blogs/:blogSlug'); 
+      navigate('/blogs');
     } catch (error) {
       toast.error('Failed to create blog. Please try again.');
     }
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append('title', title);
-  //     formData.append('content', content);
-  //     Array.from(files).forEach((file) => {
-  //       formData.append('files', file);
-  //     });
-
-  //     await axios.post('/api/blogs/createblogs', formData, {
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data',
-  //       },
-  //     });
-
-  //     toast.success('Blog published successfully!');
-  //   } catch (error) {
-  //     toast.error('Failed to publish the blog');
-  //   }
-  // };
 
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen m-12'>
@@ -126,5 +104,3 @@ const CreateBlog = () => {
     </div>
   );
 };
-
-export default CreateBlog;

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBlogs } from '../slices/blog/blogSlice';
@@ -10,9 +11,11 @@ const BlogCards = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
   const { blogs, status, error } = useSelector((state) => state.blogs);
+
   useEffect(() => {
     dispatch(fetchBlogs(currentPage));
   }, [currentPage, dispatch]);
+
   const onPageChange = (page) => setCurrentPage(page);
 
   return (
@@ -30,13 +33,15 @@ const BlogCards = () => {
               <img src={'http://localhost:8080/api/uploads/' +  post.images[0]} alt={post.title} className='w-full h-full object-cover' />
             </div>
             <div className='absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2 text-white'>
-              <div className='flex items-center mb-2'>
-                <img src={img8} alt={post.user.name} className='w-8 h-8 rounded-full mr-2' />
-                <div>
-                  <p className='text-sm font-semibold'>{post.user.name}</p>
-                  <p className='text-xs'>{new Date(post.createdAt).toLocaleDateString()}</p>
+              {post.user && (
+                <div className='flex items-center mb-2'>
+                  <img src={img8} alt={post.user.name} className='w-8 h-8 rounded-full mr-2' />
+                  <div>
+                    <p className='text-sm font-semibold'>{post.user.name}</p>
+                    <p className='text-xs'>{new Date(post.createdAt).toLocaleDateString()}</p>
+                  </div>
                 </div>
-              </div>
+              )}
               <p className='font-bold'>{post.title}</p>
             </div>
           </Link>
