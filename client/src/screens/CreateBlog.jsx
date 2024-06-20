@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 export default function CreateBlog() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -33,10 +33,6 @@ export default function CreateBlog() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!token) {
-      toast.error('Please sign in to create a blog.');
-      return;
-    }
 
     const data = new FormData();
     data.append('title', formData.title);
@@ -47,7 +43,7 @@ export default function CreateBlog() {
     }
 
     try {
-      await dispatch(createBlog({ blogData: data, token })).unwrap();
+      await dispatch(createBlog({ blogData: data })).unwrap();
       toast.success('Blog created successfully!');
       navigate('/blogs');
     } catch (error) {
@@ -72,20 +68,12 @@ export default function CreateBlog() {
             className='flex-1'
             onChange={handleChange}
           />
-        </div>
-        <div className='flex gap-4 items-center justify-between border-4 border-yellow-400 border-dotted p-3'>
-          <FileInput
+             <FileInput
             type='file'
             accept='image/*,video/*'
             multiple
             onChange={handleFileChange}
           />
-          <Button
-            type='button'
-            className='text-white bg-emerald-700 rounded-lg text-sm px-4 py-1 text-center'
-          >
-            Upload Files
-          </Button>
         </div>
         <ReactQuill
           theme='snow'
@@ -103,4 +91,4 @@ export default function CreateBlog() {
       </form>
     </div>
   );
-};
+}
