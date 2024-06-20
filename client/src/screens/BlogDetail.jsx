@@ -27,11 +27,11 @@ const BlogDetail = () => {
 
   return (
     <div className="relative min-h-screen m-[7%]">
-      <div className="relative h-[50vh] w-full">
+      <div className="relative h-[60vh] w-full">
         <img src={'http://localhost:8080/api/uploads/' +  blog.images[0]} className="h-full w-full object-cover rounded-3xl" alt="Background" />
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center rounded-3xl bg-black bg-opacity-50">
           <h1 className="text-3xl md:text-5xl font-bold mb-2 text-white">{blog.title}</h1>
-          <p className="text-md md:text-xl text-gray-300">{blog.user.name}</p>
+          <p className="text-md md:text-xl text-gray-300"> by {blog.user.name}  |  {new Date(blog.createdAt).toLocaleDateString()}</p>
         </div>
       </div>
       <div className="mt-7">
