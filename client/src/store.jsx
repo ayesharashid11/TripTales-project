@@ -6,6 +6,7 @@ import createblogReducer from '../src/slices/blog/createBlogSlice'
 import tourReducer from '../src/slices/tour/tourSlice'
 import paymentReducer from '../src/slices/paymnet/paymentSlice'
 import searchReducer from '../src/slices/tour/searchTripSlice'
+import addReviewReducer from '../src/slices/review/addReviewSlice'
 export const store = configureStore({
   reducer: {
     blogs: blogsReducer,
@@ -15,6 +16,7 @@ export const store = configureStore({
     tours: tourReducer,
     payment: paymentReducer,
     search: searchReducer,
+    addReview: addReviewReducer,
   },
 });
 

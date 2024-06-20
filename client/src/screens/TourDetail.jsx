@@ -8,6 +8,7 @@ import TourHighlights from '../components/tour-datail/TourHighlights';
 import TourBlogs from '../components/tour-datail/TourBlogs';
 import TourReview from '../components/tour-datail/TourReview';
 import BookNow from '../components/BookNow';
+import AddReview from '../components/AddReview';
 const TourDetail=() =>  {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -67,7 +68,8 @@ const TourDetail=() =>  {
         <div>
           {/* <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Book Now</p> */}
            <BookNow /> 
-          <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Add Review</p>
+          {/* <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Add Review</p> */}
+          <AddReview />
         </div>
       </div>
       <TourHighlights />
