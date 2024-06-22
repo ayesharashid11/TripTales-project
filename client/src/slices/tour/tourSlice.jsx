@@ -1,22 +1,22 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// export const fetchTours = createAsyncThunk(
-//   'tours/fetchTours',
-//   async (page = 1) => {
-//     const response = await axios.get(`http://localhost:8080/api/tours/getalltours?page=${page}`);
-//     return response.data;
-//   }
-// );
 export const fetchTours = createAsyncThunk(
   'tours/fetchTours',
-  async ({ page = 1, query = '' } = {}) => {
-    const response = await axios.get(`http://localhost:8080/api/tours/getalltours`, {
-      params: { page, query },
-    });
+  async (page = 1) => {
+    const response = await axios.get(`http://localhost:8080/api/tours/getalltours?page=${page}`);
     return response.data;
   }
 );
+// export const fetchTours = createAsyncThunk(
+//   'tours/fetchTours',
+//   async ({ page = 1, query = '' } = {}) => {
+//     const response = await axios.get(`http://localhost:8080/api/tours/getalltours`, {
+//       params: { page, query },
+//     });
+//     return response.data;
+//   }
+// );
 
 export const fetchTourById = createAsyncThunk('tours/fetchTourById', async (id) => {
   try {
@@ -27,6 +27,13 @@ export const fetchTourById = createAsyncThunk('tours/fetchTourById', async (id) 
   }
 });
 
+export const searchTours = createAsyncThunk(
+  'tours/searchTours',
+  async ({ query, page = 1 }) => {
+    const response = await axios.get(`http://localhost:8080/api/tours/search?query=${query}`);
+    return response.data;
+  }
+);
 const tourSlice = createSlice({
   name: 'tours',
   initialState: {
@@ -36,10 +43,14 @@ const tourSlice = createSlice({
     error: null,
     page: 1,
     totalPages: 1,
+    isSearchMode: false,
   },
   reducers: {
     setPage(state, action) {
       state.page = action.payload;
+    },
+    setSearchMode(state, action) {
+      state.isSearchMode = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -59,21 +70,35 @@ const tourSlice = createSlice({
     
         builder.addCase(fetchTourById.pending, (state) => {
         state.status = 'loading';
-      });
+      })
       builder.addCase(fetchTourById.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.tour = action.payload;
-      });
+      })
       builder.addCase(fetchTourById.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
-      });
+      })
 
+      .addCase(searchTours.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(searchTours.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.tours = action.payload.data.tours;
+        state.totalPages = action.payload.data.totalPages;
+      })
+      .addCase(searchTours.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
   },
 });
 export const selectAllTours = (state) => state.tour.tours;
 export const selectTour = (state) => state.tour.tour;
 export const selectStatus = (state) => state.tour.status;
 export const selectError = (state) => state.tour.error;
-export const { setPage } = tourSlice.actions;
+export const selectIsSearchMode = (state) => state.tours.isSearchMode;
+
+export const { setPage, setSearchMode } = tourSlice.actions;
 export default tourSlice.reducer;

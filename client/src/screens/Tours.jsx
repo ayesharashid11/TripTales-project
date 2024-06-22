@@ -1,6 +1,7 @@
+
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchTours, setPage } from '../slices/tour/tourSlice';
+import { fetchTours, setPage, searchTours, setSearchMode } from '../slices/tour/tourSlice';
 import { Pagination, Card } from 'flowbite-react';
 import { IoStarSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
@@ -10,23 +11,34 @@ import SearchTour from '../components/SearchTour';
 const Tours = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { tours, status, error, page } = useSelector((state) => state.tours);
+  const { tours, status, error, page, totalPages, isSearchMode } = useSelector((state) => state.tours);
 
   useEffect(() => {
-    dispatch(fetchTours(page));
-  }, [dispatch, page]);
+    if (!isSearchMode) {
+      dispatch(fetchTours(page));
+    }
+  }, [dispatch, page, isSearchMode]);
 
   const handleCardClick = (id) => {
     navigate(`/tours/${id}`);
   };
-  
+
   const onPageChange = (page) => {
     dispatch(setPage(page));
   };
 
+  const handleSearch = (query) => {
+    if (query.trim() !== '') {
+      dispatch(searchTours({ query, page: 1 }));
+      dispatch(setSearchMode(true));
+    } else {
+      dispatch(setSearchMode(false));
+    }
+  };
+
   return (
     <div className='mt-[80px]'>
-      <SearchTour />
+      <SearchTour onSearch={handleSearch} />
       {status === 'loading' && <p>Loading...</p>}
       {status === 'failed' && <p>{error}</p>}
       <div className='flex flex-col md:flex-row m-6'>
@@ -49,8 +61,8 @@ const Tours = () => {
             </div>
             <p className='text-sm text-gray-500'>{tour.user.companyName}</p>
             <div className='flex items-center justify-between'>
-              <span className='text-md font-bold text-gray-900'>${tour.price}</span>
-              <p>{tour.totalDays} Days</p>
+              <span className='text-md font-bold text-emerald-700'>${tour.price}</span>
+              <p className='text-yellow-500 font-medium'>{tour.totalDays} Days</p>
             </div>
           </Card>
         ))}

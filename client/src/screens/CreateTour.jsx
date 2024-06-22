@@ -57,7 +57,7 @@ const CreateTour = () => {
             dispatch(createTour({ tourData: data, userId })) 
                 .unwrap()
                 .then(() => {
-                    navigate('/');
+                    navigate('/tours');
                 })
                 .catch(() => {
                     // Errors are handled in redux slice
