@@ -1,7 +1,7 @@
 const Tour = require('../models/tourSchema');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-const mongoose = require('mongoose');
+
 exports.createTour = catchAsync(async (req, res, next) => {
   const images = req.files.map(file => file.filename);
 

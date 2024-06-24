@@ -51,14 +51,14 @@ const Tours = () => {
             onClick={() => handleCardClick(tour._id)}
           >
             <h5 className='md:text-md font-semibold tracking-tight text-gray-900'>{tour.tourName}</h5>
-            {/* <div className='flex items-center'>
-              {Array(tour.rating).fill().map((_, i) => (
+            <div className='flex items-center'>
+              {Array(tour.averageRating).fill().map((_, i) => (
                 <IoStarSharp key={i} className='text-yellow-300' />
               ))}
               <span className='ml-3 mr-2 rounded bg-cyan-100 px-2.5 text-xs font-semibold text-cyan-800'>
-                {tour.rating}
+                {tour.averageRating}
               </span>
-            </div> */}
+            </div>
             <p className='text-sm text-gray-500'>{tour.user.companyName}</p>
             <div className='flex items-center justify-between'>
               <span className='text-md font-bold text-emerald-700'>${tour.price}</span>

@@ -44,10 +44,13 @@ const TourDetail=() =>  {
         <div className='flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-8 max-w-md w-full px-4'>
           <div className='flex '>
             <h1 className='text-2xl font-bold text-center md:text-left'>{tour.title}</h1>
-            <div className='flex items-center ml-5'>
-              {Array(tour.rating).fill().map((_, i) => (
+              <div className='flex items-center'>
+              {Array(tour.averageRating).fill().map((_, i) => (
                 <IoStarSharp key={i} className='text-yellow-300' />
               ))}
+              <span className='ml-3 mr-2 rounded bg-cyan-100 px-2.5 text-xs font-semibold text-cyan-800'>
+                {tour.averageRating}
+              </span>
             </div>
           </div>
           <div className='text-xl font-bold text-gray-900 mt-2'>${tour.price}</div>
