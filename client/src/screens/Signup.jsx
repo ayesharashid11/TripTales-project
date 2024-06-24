@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import mount1 from '../assets/mount1.jpg';
 import { useFormik } from 'formik';
 import { signUpSchema } from '../schemas';
+import axios from 'axios';
 
 const initialValues = {
   name: '',
@@ -26,22 +27,22 @@ const Signup = () => {
       setLoading(true);
       setErrorMessage(null);
       const filteredValues = userType === 'tourist'
-        ? {
-            name: values.name,
-            email: values.email,
-            password: values.password,
-            confirmPassword: values.confirmPassword,
-            role: values.role,
-          }
-        : {
-            name: values.name,
-            email: values.email,
-            password: values.password,
-            confirmPassword: values.confirmPassword,
-            companyName: values.companyName,
-            country: values.country,
-            role: values.role,
-          };
+      ? {
+        name: values.name,
+        email: values.email,
+        password: values.password,
+        confirmPassword: values.confirmPassword,
+        role: 'tourist'
+      }
+      : {
+        name: values.name,
+        email: values.email,
+        password: values.password,
+        confirmPassword: values.confirmPassword,
+        companyName: values.companyName,
+        country: values.country,
+        role: 'company',
+      };
           
       console.log('Filtered form values:', filteredValues); 
       try {
@@ -50,14 +51,16 @@ const Signup = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(filteredValues),
         });
-        console.log('API response status:', res.status);
         const data = await res.json();
-        console.log('API response data:', data);
+        // const res = await axios.post('http://localhost:8080/api/auth/signup', filteredValues);
+       console.log('API response data:', data);
         if (data.success === false) {
           setErrorMessage(data.message);
         } else if (res.ok) {
           navigate('/');
         }
+  console.log('userType:', userType);
+
       } catch (error) {
         console.error('Error during form submission:', error);
         setErrorMessage(error.message);

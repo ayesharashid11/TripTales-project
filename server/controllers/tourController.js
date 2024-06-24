@@ -30,7 +30,9 @@ exports.createTour = catchAsync(async (req, res, next) => {
 });
 
 exports.getTour = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findById(req.params.id).populate('user', 'companyName  -_id');
+  const tour = await Tour.findById(req.params.id)
+  .populate('user', 'companyName  -_id')
+  .populate({ path: 'reviews' , select: 'rating'});
   if (!tour) {
     return next(new AppError('No tour found with that ID', 404));
   }
@@ -69,10 +71,12 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
   const page = req.query.page ? parseInt(req.query.page, 10) : 1;
   const limit = 10;
   const skip = (page - 1) * limit;
-  const tours = await Tour.find().populate('user', 'companyName -_id')
+  const tours = await Tour.find()
+  .populate({ path: 'reviews' , select: 'rating'})
+  .populate('user', 'companyName -_id')
   .skip(skip)
   .limit(limit);
-  res.status(200).json({
+  res.json({
     results: tours.length,
     data: {
       tours

@@ -68,14 +68,14 @@ const tourSlice = createSlice({
         state.error = action.error.message;
       })
     
-        builder.addCase(fetchTourById.pending, (state) => {
+        .addCase(fetchTourById.pending, (state) => {
         state.status = 'loading';
       })
-      builder.addCase(fetchTourById.fulfilled, (state, action) => {
+     .addCase(fetchTourById.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.tour = action.payload;
       })
-      builder.addCase(fetchTourById.rejected, (state, action) => {
+      .addCase(fetchTourById.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
