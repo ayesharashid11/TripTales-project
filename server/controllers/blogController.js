@@ -3,6 +3,7 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
 exports.createBlog = catchAsync(async (req, res, next) => {
+  console.log("jdkfwtieytfiyti", req.body);
   const images = [];
   const videos = [];
   req.files.forEach(file => {
@@ -20,6 +21,7 @@ exports.createBlog = catchAsync(async (req, res, next) => {
     videos
   };
   const newBlog = await Blog.create(blogData);
+  // console.log("newBlognewBlognewBlognewBlog", newBlog)
   res.json({
     status: 'success',
     data: {

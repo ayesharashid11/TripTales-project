@@ -6,12 +6,12 @@ import Blogs from './screens/Blogs';
 import CreateBlog from './screens/CreateBlog';
 import Tours from './screens/Tours';
 import Weather from './screens/Weather';
-import Signup from './screens/Signup';
 import TourDetail from './screens/TourDetail';
 import BlogDetail from './screens/BlogDetail';
 import CreateTour from './screens/CreateTour';
 import Layout from './components/layout';
 import AuthRoute from './components/AuthRoute';
+import SignUpForm from './screens/SignUpForm';
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 const App =() =>{
@@ -34,7 +34,9 @@ const App =() =>{
           <Layout>
             <BlogDetail />
           </Layout>} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={
+         <SignUpForm />
+          } />
         <Route path="/createblogs" element={
           <Layout>
             <AuthRoute>

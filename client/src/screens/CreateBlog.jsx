@@ -33,7 +33,7 @@ export default function CreateBlog() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("formDataformDataformData", formData);
     const data = new FormData();
     data.append('title', formData.title);
     data.append('content', formData.content);
@@ -68,7 +68,7 @@ export default function CreateBlog() {
             className='flex-1'
             onChange={handleChange}
           />
-             <FileInput
+          <FileInput
             type='file'
             accept='image/*,video/*'
             multiple

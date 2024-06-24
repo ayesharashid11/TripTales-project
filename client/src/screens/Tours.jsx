@@ -52,11 +52,11 @@ const Tours = () => {
           >
             <h5 className='md:text-md font-semibold tracking-tight text-gray-900'>{tour.tourName}</h5>
             <div className='flex items-center'>
-              {Array(tour.averageRating).fill().map((_, i) => (
+              {Array(tour.rating).fill().map((_, i) => (
                 <IoStarSharp key={i} className='text-yellow-300' />
               ))}
               <span className='ml-3 mr-2 rounded bg-cyan-100 px-2.5 text-xs font-semibold text-cyan-800'>
-                {tour.averageRating}
+                {tour.rating}
               </span>
             </div>
             <p className='text-sm text-gray-500'>{tour.user.companyName}</p>
