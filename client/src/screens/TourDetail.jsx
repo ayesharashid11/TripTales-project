@@ -50,7 +50,7 @@ const TourDetail=() =>  {
                 <IoStarSharp key={i} className='text-yellow-300' />
               ))}
               <span className='ml-3 mr-2 rounded bg-cyan-100 px-2.5 text-xs font-semibold text-cyan-800'>
-                {tour.rating}
+                {tour.averageRating}
               </span>
             </div>
           </div>

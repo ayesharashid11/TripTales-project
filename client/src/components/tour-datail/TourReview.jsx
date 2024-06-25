@@ -29,7 +29,7 @@ const TourReview = ({ tourId }) => {
         {reviews.map(review => (
           <div key={review._id} className='bg-white text-black border-2 border-emerald-700 p-4 rounded-2xl shadow-lg'>
             <div className='flex items-center mb-3'>
-              <img src={review.user.avatar || "https://via.placeholder.com/150"} alt={review.user.name} className='w-8 h-8 rounded-full mr-3' />
+              {/* <img src={review.user.avatar || "https://via.placeholder.com/150"} alt={review.user.name} className='w-8 h-8 rounded-full mr-3' /> */}
               <div>
                 <p className='font-semibold'>{review.user.name}</p>
                 <div className='flex'>

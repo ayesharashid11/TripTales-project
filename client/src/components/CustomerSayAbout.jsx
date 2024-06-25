@@ -55,7 +55,6 @@ const CustomerSayAbout = () => {
                     {reviews.map(review => (
                         <div key={review._id} className='bg-emerald-700 text-white p-6 rounded-2xl mx-2'>
                             <div className='flex items-center mb-4'>
-                                <img src={review.user.avatar || 'https://via.placeholder.com/150'} alt={review.user.name} className='w-12 h-12 rounded-full mr-4' />
                                 <div>
                                     <p className='font-semibold'>{review.user.name}</p>
                                     <div className='flex'>
