@@ -1,4 +1,5 @@
 const Blog = require('../models/blogSchema');
+const Tour = require('../models/tourSchema');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
@@ -64,4 +65,15 @@ exports.getAllBlogs = catchAsync(async (req, res, next) => {
       blogs
     }
   });
+});
+
+
+exports.searchBlog = catchAsync(async (req, res, next) => {
+  const query = req.query.q;
+  
+  if (!query || query.length < 3) {
+    return res.status(400).json({ message: 'Query must be at least 3 characters long.' });
+  }
+    const blogs = await Blog.find({ title: { $regex: query, $options: 'i' } }).limit(10);
+    res.json(blogs);
 });

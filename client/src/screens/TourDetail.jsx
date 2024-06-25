@@ -9,6 +9,7 @@ import TourBlogs from '../components/tour-datail/TourBlogs';
 import TourReview from '../components/tour-datail/TourReview';
 import BookNow from '../components/BookNow';
 import AddReview from '../components/AddReview';
+import AttatchTourBlog from '../components/tour-datail/AttatchTourBlog';
 const TourDetail=() =>  {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -73,6 +74,7 @@ const TourDetail=() =>  {
            <BookNow /> 
           {/* <p className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'>Add Review</p> */}
           <AddReview />
+          <AttatchTourBlog tourId={id} />
         </div>
       </div>
       <TourHighlights />

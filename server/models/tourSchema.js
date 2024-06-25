@@ -51,7 +51,11 @@ const tourSchema = new mongoose.Schema({
   averageRating: {
     type: Number,
     default: 0
-  }
+  },
+  blogs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Blog'
+  }]
 });
 
 const Tour = mongoose.model('Tour', tourSchema);
