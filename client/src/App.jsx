@@ -12,6 +12,7 @@ import CreateTour from './screens/CreateTour';
 import Layout from './components/layout';
 import AuthRoute from './components/AuthRoute';
 import SignUpForm from './screens/SignUpForm';
+
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 const App =() =>{

@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { SelectedBlogsContext } from '../../context/SelectedBlogsContext'
 
 const AttachTourBlog = ({ tourId }) => {
   const [showModal, setShowModal] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
-  const [selectedBlogs, setSelectedBlogs] = useState([]);
   const [error, setError] = useState('');
+
+  const { selectedBlogs, setSelectedBlogs } = useContext(SelectedBlogsContext);
 
   const handleInputChange = async (e) => {
     const value = e.target.value;
@@ -43,13 +47,16 @@ const AttachTourBlog = ({ tourId }) => {
         });
       }
       setShowModal(false);
+      toast.success('Blogs attached successfully!');
     } catch (error) {
       console.error('Error attaching blogs to tour:', error);
+      toast.error('Error attaching blogs to tour.');
     }
   };
 
   return (
     <div>
+      <ToastContainer />
       <p
         className='text-emerald-700 text-md font-medium cursor-pointer hover:text-emerald-300'
         onClick={() => setShowModal(true)}

@@ -4,11 +4,13 @@ import App from './App.jsx'
 import './index.css'
 import { store } from './store.jsx'
 import { Provider } from 'react-redux'
-
+import { SelectedBlogsProvider } from './context/SelectedBlogsContext.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <SelectedBlogsProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </SelectedBlogsProvider>
   // </React.StrictMode> 
 )
