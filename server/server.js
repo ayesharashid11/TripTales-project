@@ -7,6 +7,9 @@ const blogRouter = require('./routes/blogRoutes');
 const tourRouter = require('./routes/tourRoutes');
 const reviewrouter = require('./routes/reviewRoutes');
 const paymentRoutes = require('./payment-integration/jazzcashRoute');
+const  placesController = require('./controllers/placesController');
+const geocoderRoutes = require('./routes/geocoder');
+const fourSquareApi = require ('./controllers/fourSquareApi');
 const cors = require('cors');
 const path = require ('path');
 // const fs = require('fs');
@@ -26,7 +29,9 @@ app.use('/api/blogs' , blogRouter);
 app.use('/api/tours', tourRouter);
 app.use('/api/review', reviewrouter);
 app.use('/api/payment', paymentRoutes);
-
+app.use('/api', placesController);
+app.use('/api',  geocoderRoutes );
+app.use('/api',  fourSquareApi);
 // const createDirectories = () => {
 //   const imageUploadDir = path.join(__dirname, '..', 'uploads', 'images');
 //   const videoUploadDir = path.join(__dirname, '..', 'uploads', 'videos');
