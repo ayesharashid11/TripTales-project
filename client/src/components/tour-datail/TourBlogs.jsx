@@ -42,7 +42,6 @@ const TourBlogs = () => {
 
   return (
     <div>
-      <AttachTourBlog tourId={id} />
       <h2 className="text-xl md:text-2xl flex items-center justify-center text-emerald-700 font-semibold m-6">
         Tourist Blogs
       </h2>
