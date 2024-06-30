@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import '../screens/styles.css';
 import hill1 from '../assets/hill1.png';
@@ -13,7 +12,6 @@ import { TypeAnimation } from 'react-type-animation';
 import SearchTrip from '../components/SearchTrip';
 import CustomersGallery from '../components/CustomersGallery';
 import CustomerSayAbout from '../components/CustomerSayAbout';
-import FeaturedTours from '../components/FeaturedTours';
 
 const LandingPage = () => {
   const sloganRef = useRef(null);
@@ -53,36 +51,35 @@ const LandingPage = () => {
 
   return (
     <>
-    <div className="parallex">
-      <img src={hill1} ref={hill1Ref} id="hill1" alt="hill1" />
-      <img src={hill2} id="hill2" alt="hill2" />
-      <img src={hill3} id="hill3" alt="hill3" />
-      <img src={hill4} ref={hill4Ref} id="hill4" alt="hill4" />
-      <img src={hill5} ref={hill5Ref} id="hill5" alt="hill5" />
-      <img src={tree} id="tree" alt="tree" />
-      <p ref={sloganRef} className="slogan" id="slogan">
-      <TypeAnimation
-      sequence={[
-        'Pack Up', 
-        1000,
-        'Travel There, ',
-        1000,
-        'Then Share',
-        1000,
-      ]}
-      wrapper="span"
-      cursor={true}
-      repeat={Infinity}
-      style={{ fontSize: '2em', display: 'inline-block' }}
-    />
-      </p>
-      <img src={leaf} ref={leafRef} id="leaf" alt="leaf" />
-      <img src={plant} id="plant" alt="plant" />
-    </div>
-    <SearchTrip /><hr/>
-    <FeaturedTours /><hr/>
-    <CustomersGallery /><hr/>
-    <CustomerSayAbout />
+      <div className="parallex">
+        <img src={hill1} ref={hill1Ref} id="hill1" alt="hill1" />
+        <img src={hill2} id="hill2" alt="hill2" />
+        <img src={hill3} id="hill3" alt="hill3" />
+        <img src={hill4} ref={hill4Ref} id="hill4" alt="hill4" />
+        <img src={hill5} ref={hill5Ref} id="hill5" alt="hill5" />
+        <img src={tree} id="tree" alt="tree" />
+        <p ref={sloganRef} className="slogan" id="slogan">
+          <TypeAnimation
+            sequence={[
+              'Pack Up',
+              1000,
+              'Travel There, ',
+              1000,
+              'Then Share',
+              1000,
+            ]}
+            wrapper="span"
+            cursor={true}
+            repeat={Infinity}
+            style={{ fontSize: '2em', display: 'inline-block' }}
+          />
+        </p>
+        <img src={leaf} ref={leafRef} id="leaf" alt="leaf" />
+        <img src={plant} id="plant" alt="plant" />
+      </div>
+      <SearchTrip /><hr />
+      <CustomersGallery /><hr />
+      <CustomerSayAbout />
     </>
   );
 };

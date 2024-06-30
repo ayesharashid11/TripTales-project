@@ -19,6 +19,8 @@ const catchAsync = require('../utils/catchAsync');
 
 exports.getAllReviews = catchAsync(async (req, res, next) => {
   const reviews = await Review.find()
+    .sort({ createdAt: -1 })
+    .limit(5)
     .populate({
       path: 'tour',
       select: 'tourName -_id'
