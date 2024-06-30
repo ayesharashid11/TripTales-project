@@ -43,9 +43,9 @@ const TourDetail=() =>  {
         <div className='w-full md:w-1/2 max-w-md mb-3'>
           <img src={'http://localhost:8080/api/uploads/' + tour.image} alt={tour.title} className='w-full rounded-lg shadow-lg' />
         </div>
-        <div className='flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-8 max-w-md w-full px-4'>
-          <div className='flex '>
-            <h1 className='text-2xl font-bold text-center md:text-left'>{tour.title}</h1>
+        <div className='flex flex-col items-center md:items-start mt-3 md:mt-0 md:ml-8 max-w-md w-full px-4'>
+          <div className=' '>
+            <h1 className='text-xl font-medium text-yellow-500 text-center md:text-left'>{tour.tourName}</h1>
               <div className='flex items-center'>
               {Array(tour.rating).fill().map((_, i) => (
                 <IoStarSharp key={i} className='text-yellow-300' />
@@ -61,7 +61,7 @@ const TourDetail=() =>  {
           <p className=' text-lg text-emerald-700 font-medium'> Departure Address: </p>
           <p className='mt-2 text-gray-600 text-center md:text-left'>{tour.departureAddress}</p>
           <div className='flex flex-col md:items-start mt-2 max-w-md md:max-w-xl w-full '>
-            <h1 className='text-xl md:text-xl text-emerald-700 font-semibold mt-2'>Contact Info</h1>
+            <h1 className='text-xl md:text-xl text-emerald-700 font-semibold mt-1'>Contact Info</h1>
             <p className='text-gray-500'><span className='font-medium text-yellow-500'>Company Name: </span> {tour.user.companyName}</p>
             <hr />
             <p className='text-gray-500'><span className='font-medium text-yellow-500'>Email: </span>{tour.email}</p>

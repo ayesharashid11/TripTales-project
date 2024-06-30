@@ -5,7 +5,7 @@ import { IoStarSharp } from 'react-icons/io5';
 const PlacesComponent = () => {
   const [city, setCity] = useState(''); 
   const [places, setPlaces] = useState([]); 
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(false); 
   const [error, setError] = useState(null); 
   const [activeFilter, setActiveFilter] = useState('hotels'); 
   const [showMore, setShowMore] = useState(false); 
@@ -107,17 +107,17 @@ const PlacesComponent = () => {
         </button>
       </div>
       <div className="flex justify-center items-center mb-4">
+      <button
+          onClick={() => handleFilter('hotels')}
+          className={`px-4 py-2 ${activeFilter === 'hotels' ? 'bg-yellow-500' : 'bg-gray-300'} text-white rounded-md mr-2`}
+        >
+          Hotels
+        </button>
         <button
           onClick={() => handleFilter('restaurants')}
           className={`px-4 py-2 ${activeFilter === 'restaurants' ? 'bg-green-500' : 'bg-gray-300'} text-white rounded-md mr-2`}
         >
           Restaurants
-        </button>
-        <button
-          onClick={() => handleFilter('hotels')}
-          className={`px-4 py-2 ${activeFilter === 'hotels' ? 'bg-yellow-500' : 'bg-gray-300'} text-white rounded-md mr-2`}
-        >
-          Hotels
         </button>
         <button
           onClick={() => handleFilter('pharmacies')}
@@ -136,14 +136,14 @@ const PlacesComponent = () => {
             <li key={place.id || place.tags.name} className='mb-4 p-4 bg-white text-black border-2 border-emerald-700 rounded-2xl shadow-lg'>
               <h3>{place.tags.name}</h3>
               {place.tags['addr:street'] && (
-                <p>
+                <p className='text-medium'>
                   {place.tags['addr:street']} {place.tags['addr:housenumber']}, {place.tags['addr:city']}
                 </p>
               )}
               {place.tags['opening_hours'] && (
-                <p>Opening Hours: {place.tags['opening_hours']}</p>
+                <p><sapan className="text-yellow-500 font-medium">Opening Hours: </sapan> {place.tags['opening_hours']}</p>
               )}
-              {place.tags.phone && <p>Phone: {place.tags.phone}</p>}
+              {place.tags.phone && <p><span className="text-yellow-500 font-medium">Phone:</span> {place.tags.phone}</p>}
               {place.tags.website && <a href={place.tags.website}>Website</a>}
             </li>
           ))}
