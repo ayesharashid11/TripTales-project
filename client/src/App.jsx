@@ -12,10 +12,11 @@ import CreateTour from './screens/CreateTour';
 import Layout from './components/layout';
 import AuthRoute from './components/AuthRoute';
 import SignUpForm from './screens/SignUpForm';
+import LocationDetails from './screens/LocationDetails';
 
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
-const App =() =>{
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -36,8 +37,8 @@ const App =() =>{
             <BlogDetail />
           </Layout>} />
         <Route path="/signup" element={
-         <SignUpForm />
-          } />
+          <SignUpForm />
+        } />
         <Route path="/createblogs" element={
           <Layout>
             <AuthRoute>
@@ -61,6 +62,11 @@ const App =() =>{
           <AuthRoute>
             <CreateTour />
           </AuthRoute>
+        } />
+        <Route path='/location-details' element={
+          <Layout>
+            <LocationDetails />
+          </Layout>
         } />
       </Routes>
       {/* <ToastContainer /> */}

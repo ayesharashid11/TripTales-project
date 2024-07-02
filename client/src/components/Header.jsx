@@ -38,6 +38,11 @@ const Header = () => {
                 Create Tour
                 </Link>
               </li>
+              <li>
+                <Link to="/location-details" className=" block py-2 px-3 hover:underline-offset-1 text-emerald-700 rounded md:hover:bg-transparent md:hover:text-emerald-300 md:p-0">
+                City Explorer
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

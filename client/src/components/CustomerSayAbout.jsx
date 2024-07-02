@@ -51,6 +51,8 @@ const CustomerSayAbout = () => {
                     autoPlay={true}
                     autoPlaySpeed={1000}
                     infinite={true}
+                    showDots={true}
+                    className=" pb-8 m-4 "
                 >
                     {reviews.map(review => (
                         <div key={review._id} className='bg-emerald-700 text-white p-6 rounded-2xl mx-2'>

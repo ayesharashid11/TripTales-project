@@ -67,9 +67,16 @@ const Tours = () => {
           </Card>
         ))}
       </div>
-      <div className='flex flex-wrap sm:justify-center mb-4'>
-        <Pagination currentPage={page} totalPages={10} onPageChange={onPageChange} showIcons />
-      </div>
+      {tours.length > 10 && (
+        <div className='flex flex-wrap sm:justify-center mb-4'>
+          <Pagination
+            currentPage={page}
+            totalPages={Math.ceil(tours.length / 10)}
+            onPageChange={onPageChange}
+            showIcons
+          />
+        </div>
+      )}
     </div>
   );
 };

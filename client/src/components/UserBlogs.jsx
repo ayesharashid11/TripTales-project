@@ -47,11 +47,15 @@ const BlogCards = () => {
           </Link>
         ))}
       </div>
-      <div className="flex flex-wrap sm:justify-center mb-4">
-        <Pagination currentPage={currentPage} totalPages={10} onPageChange={onPageChange} showIcons />
-      </div>
+         {/* Conditionally render Pagination based on blog count */}
+         {blogs.length > 2 && (
+        <div className="flex flex-wrap sm:justify-center mb-4">
+          <Pagination currentPage={currentPage} totalPages={Math.ceil(blogs.length / 10)} onPageChange={onPageChange} showIcons />
+        </div>
+      )}
     </>
   );
 };
 
 export default BlogCards;
+
